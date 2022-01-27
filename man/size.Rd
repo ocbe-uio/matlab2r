@@ -11,8 +11,13 @@ size(x, d)
 
 \item{d}{dimension of object to be evaluated}
 }
+\value{
+A vector whose size is the number of dimensions of x and whose scale
+corresponds to the number of elements on (i.e. the size of) each dimension.
+}
 \description{
-This functions tries to replicate the behavior of the base function "size" in Matlab
+This functions tries to replicate the behavior of the base
+function "size" in Matlab
 }
 \note{
 On MATLAB, size(1, 100) returns 1. As a matter of fact, if the user
@@ -20,4 +25,11 @@ calls for a dimension which x doesn't have \code{size()} always returns 1. R's
 default behavior is more reasonable in those cases (i.e., returning NA),
 but since the point of this function is to replicate MATLAB behaviors
 (bugs and questionable behaviors included), this function also does this.
+}
+\examples{
+size(10)
+size(1:4)
+size(matrix(1:6, 2))
+size(array(1:24, c(2, 3, 4)))
+
 }

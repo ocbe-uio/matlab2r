@@ -13,6 +13,15 @@ inputdlg(prompt, dims = 1, definput = NULL)
 
 \item{definput}{default value of the input}
 }
+\value{
+A user prompt
+}
 \description{
 Replicates the functionality of the homonymous function in Matlab (sans dialog box)
+}
+\examples{
+\donttest{
+ name <- inputdlg("Type your name")
+ paste("Hello,", name)
+}
 }

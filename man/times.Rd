@@ -18,5 +18,16 @@ matrix with dimensions equal to the larger of the two factors
 Emulates the \code{times()} and \verb{.*} operators from Matlab.
 }
 \details{
-This function basically handles elements of different length better than the \code{*} operator in R, at least as far as behavior from a Matlab user is expecting.
+This function basically handles elements of different length
+better than the \code{*} operator in R, at least as far as behavior from a
+Matlab user is expecting.
+}
+\examples{
+times(9, 6)
+x <- matrix(1:4, 2)
+y <- c(10, 3)
+print(x)
+print(y)
+times(x, y)
+x * y
 }

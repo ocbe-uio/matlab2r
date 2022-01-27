@@ -5,6 +5,11 @@
 #' @param filter Filter listed files
 #' @param title Pre-prompt message
 #' @export
+#' @return A list containing the name of the file selected and its path
+#' @examples
+#' \donttest{
+#'   uigetfile()
+#' }
 uigetfile <- function(filter = "", title = "") {
   # ==========================================================================
   # Pre-prompt message

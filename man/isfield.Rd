@@ -11,9 +11,20 @@ isfield(x, field)
 
 \item{field}{name of field}
 }
+\value{
+A logical vector determining if \code{field} is within \code{names(x)}
+}
 \description{
 This function tries to replicate the behavior of the \code{isfield}
 function in Matlab
+}
+\examples{
+S <- list(
+  x = rnorm(100),
+  title = "x"
+)
+isfield(S, "title")
+isfield(S, "z")
 }
 \references{
 https://se.mathworks.com/help/matlab/ref/isfield.html

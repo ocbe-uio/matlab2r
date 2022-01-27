@@ -11,9 +11,17 @@ uigetfile(filter = "", title = "")
 
 \item{title}{Pre-prompt message}
 }
+\value{
+A list containing the name of the file selected and its path
+}
 \description{
 Loosely mimics the functionality of the \code{uigetfile} function on
 Matlab.
+}
+\examples{
+\donttest{
+  uigetfile()
+}
 }
 \references{
 https://se.mathworks.com/help/matlab/ref/uigetfile.html

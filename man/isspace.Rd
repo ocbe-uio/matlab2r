@@ -10,13 +10,21 @@ isspace(A)
 \item{A}{a character array or a string scalar}
 }
 \value{
-a vector TF such that the elements of TF are logical 1 (true) where corresponding characters in A are space characters, and logical 0 (false) elsewhere
+a vector TF such that the elements of TF are logical 1 (true) where
+corresponding characters in A are space characters, and logical 0 (false)
+elsewhere.
 }
 \description{
 Determine which characters are space characters
 }
 \note{
 Recognized whitespace characters are \verb{} and \verb{\\\\t}.
+}
+\examples{
+chr <- "123 Main St."
+X <- "\t a b\tcde f"
+isspace(chr)
+isspace(X)
 }
 \author{
 Waldir Leoncio

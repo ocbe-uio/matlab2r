@@ -2,11 +2,11 @@
 #' @description Generates a square or rectangular matrix of zeros or ones
 #' @param n scalar or 2D vector
 #' @param x value to fill matrix with
-#' @return n-by-n matrix filled with `x`
 #' @details This is a wrapper function to replicate the behavior of the
 #' `zeros()` and the `ones()` functions on Matlab
 #' @note Actually works for any `x`, but there's no need to bother imposing
 #' validation controls here.
+#' @return n-by-n matrix filled with `x`
 zeros_or_ones <- function(n, x) {
   # Expanding n to length 2 if necessary
   if (length(n) == 1) n <- c(n, n)
@@ -25,6 +25,11 @@ zeros_or_ones <- function(n, x) {
 #' @param n1 number of rows
 #' @param n2 number of columns
 #' @param ... extra dimensions
+#' @return An n1-by-n2 matrix of zeros
+#' @export
+#' @examples
+#' zeros(5)
+#' zeros(5, 3)
 zeros <- function(n1, n2 = n1, ...) {
   if (length(n1) == 1) {
     n <- c(n1, n2, ...)
@@ -40,6 +45,11 @@ zeros <- function(n1, n2 = n1, ...) {
 #' @param n1 number of rows
 #' @param n2 number of columns
 #' @param ... extra dimensions
+#' @return An n1-by-n2 matrix of ones
+#' @export
+#' @examples
+#' ones(3)
+#' ones(8, 1)
 ones <- function(n1, n2 = n1, ...) {
   if (length(n1) == 1) {
     n <- c(n1, n2, ...)

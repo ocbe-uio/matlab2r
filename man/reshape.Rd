@@ -11,6 +11,9 @@ reshape(A, sz)
 
 \item{sz}{vector containing the dimensions of the output vector}
 }
+\value{
+the input matrix, reshaped according to the vector sz
+}
 \description{
 Reshapes a matrix according to a certain number of dimensions
 }
@@ -24,4 +27,14 @@ time. Moreover, it introduces validation code that alter the behavior of
 \note{
 The Matlab function also accepts as input the dismemberment of sz as
 scalars.
+}
+\examples{
+mx <- matrix(1:4, 2)
+ra <- array(1:12, c(2, 3, 2))
+
+mx
+reshape(mx, c(1, 4))
+
+ra
+reshape(ra, c(3, 2, 2))
 }

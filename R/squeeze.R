@@ -12,4 +12,11 @@
 #' @return An array with the same elements as the input array, but with
 #' dimensions of length 1 removed.
 #' @author Waldir Leoncio
+#' @export
+#' @examples
+#' A <- array(dim = c(2, 1, 2))
+#' A[, , 1] <- c(1, 2)
+#' A[, , 2] <- c(3, 4)
+#' print(A)
+#' squeeze(A)
 squeeze <- function(A) as.matrix(drop(A))

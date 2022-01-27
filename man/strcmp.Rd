@@ -17,3 +17,8 @@ a logical element of the same type as the input
 \description{
 Logical test if two character elements are identical
 }
+\examples{
+strcmp("yes", "no")
+strcmp("yes", "yes")
+strcmp("no", "no")
+}

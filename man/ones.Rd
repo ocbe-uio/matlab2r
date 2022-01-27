@@ -13,7 +13,14 @@ ones(n1, n2 = n1, ...)
 
 \item{...}{extra dimensions}
 }
+\value{
+An n1-by-n2 matrix of ones
+}
 \description{
 wrapper of \code{zeros_or_ones()} that replicates the behavior of
 the \code{ones()} function on Matlab
+}
+\examples{
+ones(3)
+ones(8, 1)
 }

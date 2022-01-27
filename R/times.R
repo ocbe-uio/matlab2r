@@ -1,10 +1,20 @@
 #' @title Element-wise matrix multiplication
 #' @description Emulates the `times()` and `.*` operators from Matlab.
-#' @details This function basically handles elements of different length better than the `*` operator in R, at least as far as behavior from a Matlab user is expecting.
+#' @details This function basically handles elements of different length
+#' better than the `*` operator in R, at least as far as behavior from a
+#' Matlab user is expecting.
 #' @param a first factor of the multiplication
 #' @param b second factor of the multiplication
-#' @export
 #' @returns matrix with dimensions equal to the larger of the two factors
+#' @export
+#' @examples
+#' times(9, 6)
+#' x <- matrix(1:4, 2)
+#' y <- c(10, 3)
+#' print(x)
+#' print(y)
+#' times(x, y)
+#' x * y
 times <- function(a, b) {
   # Converting everything to matrix because Matlab looooooves the matrix
   a <- as.matrix(a)
@@ -20,7 +30,7 @@ times <- function(a, b) {
       dominated_mx <- a
     } else {
       dominant_mx <- "neither"
-      dominant_dim <- c(max(nrow(b), nrow(a)), max(ncol(b), ncol(a)))
+      dominant_dim <- c(base::max(nrow(b), nrow(a)), base::max(ncol(b), ncol(a)))
     }
   }
 

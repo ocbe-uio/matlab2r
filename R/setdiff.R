@@ -2,9 +2,16 @@
 #' @description Loosely replicates the behavior of the homonym Matlab function
 #' @param A first array
 #' @param B second array
-#' @param legacy if `TRUE`, preserves the behavior of the setdiff function from MATLAB R2012b and prior releases. (currently not supported)
+#' @param legacy if `TRUE`, preserves the behavior of the setdiff function from
+#' MATLAB R2012b and prior releases. (currently not supported)
 #' @author Waldir Leoncio
-setdiff_MATLAB <- function(A, B, legacy = FALSE) {
+#' @export
+#' @return An array containing he elements which are in A but not in B
+#' @examples
+#' A <- c(3, 6, 2, 1, 5, 1, 1)
+#' B <- c(2, 4, 6)
+#' setdiff(A, B)
+setdiff <- function(A, B, legacy = FALSE) {
   if (legacy) message("legacy=TRUE not supported. Ignoring.")
   if (is(A, "numeric") & is(B, "numeric")) {
     values <- sort(unique(A[is.na(match(A, B))]))

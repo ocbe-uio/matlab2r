@@ -2,6 +2,12 @@
 #' @description Emulates the behavior of the `sortrows` function on Matlab
 #' @param A matrix
 #' @param column ordering column
+#' @examples
+#' mx <- matrix(c(3, 2, 2, 1, 1, 10, 0, pi), 4)
+#' mx
+#' sortrows(mx)
+#' @export
+#' @return The A matrix sorted by the first row, then the second
 sortrows <- function(A, column = 1) {
   if (length(column) == 1) {
     new_row_order <- order(A[, column])

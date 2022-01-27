@@ -13,7 +13,14 @@ zeros(n1, n2 = n1, ...)
 
 \item{...}{extra dimensions}
 }
+\value{
+An n1-by-n2 matrix of zeros
+}
 \description{
 wrapper of \code{zeros_or_ones()} that replicates the behavior of
 the \code{zeros()} function on Matlab
+}
+\examples{
+zeros(5)
+zeros(5, 3)
 }

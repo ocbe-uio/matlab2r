@@ -3,7 +3,13 @@
 #' @param prompt Text field with user instructions
 #' @param dims number of dimensions in the answwers
 #' @param definput default value of the input
+#' @return A user prompt
 #' @export
+#' @examples
+#' \donttest{
+#'  name <- inputdlg("Type your name")
+#'  paste("Hello,", name)
+#' }
 inputdlg <- function(prompt, dims = 1, definput = NULL) {
   if (!is.null(definput)) {
     prompt <- append(prompt, paste0(" (default: ", definput, ")"))

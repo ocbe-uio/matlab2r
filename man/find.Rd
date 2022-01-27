@@ -11,6 +11,16 @@ find(x, sort = TRUE)
 
 \item{sort}{sort output?}
 }
+\value{
+A vector of indices of x that satisfy the logical test
+(nonzero, by default).
+}
 \description{
 Emulates behavior of \code{find}
+}
+\examples{
+X <- matrix(c(1, 0, 2, 0, 1, 1, 0, 0, 4), 3, byrow = TRUE)
+Y <- seq(1, 19, 2)
+find(X)
+find(Y == 13)
 }

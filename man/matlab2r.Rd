@@ -29,7 +29,7 @@ output to input}
 text converted to R, printed to screen or replacing input file
 }
 \description{
-Performs basic syntax conversion from Matlab to R
+Performs basic syntax conversion from a Matlab function file to R
 }
 \note{
 This function is intended to expedite the process of converting a
@@ -40,6 +40,11 @@ after using this function you should go back to it and make minor changes.
 It is also advised to do a dry-run with \code{output = "clean"} and only switching
 to \code{output = "save"} when you are confident that no important code will be
 lost (for shorter functions, a careful visual inspection should suffice).
+}
+\examples{
+matlab_script <- system.file("extdata", "matlabDemo.m", package = "matlab2r")
+matlab2r(matlab_script)
+matlab2r(matlab_script, output = "clean")
 }
 \author{
 Waldir Leoncio
