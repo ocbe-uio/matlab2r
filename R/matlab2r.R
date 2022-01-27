@@ -82,7 +82,6 @@ matlab2r <- function(filename, output = "diff", improve_formatting = TRUE, chang
   txt <- gsub("gamma_ln", "log_gamma", txt)
   txt <- gsub("nchoosek", "choose", txt)
   txt <- gsub("isempty", "is.null", txt)
-  # txt <- gsub("(.+)\\'", "t(\\1)", txt)
 
   # Subsets ------------------------------------------------ #
   ass_op <- ifelse(change_assignment, "<-", "=")
@@ -113,11 +112,6 @@ matlab2r <- function(filename, output = "diff", improve_formatting = TRUE, chang
       replacement = paste0("\\1 ", ass_op, " \\4"),
       x = txt
     )
-    # txt <- gsub(
-    # 	pattern = "(\\s+(.|\\_|\\[|\\])+)(\\s?)=(\\s?)(.+)",
-    # 	replacement = paste0("\\1 ", ass_op, "\\5"),
-    # 	x = txt
-    # )
     txt <- gsub("%(\\s?)(\\w)", "# \\2", txt)
   }
 
