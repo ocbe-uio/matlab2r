@@ -109,9 +109,10 @@ test_that("isfield works as on Matlab", {
   S$y <- sin(S$x)
   S$title <- "y = sin(x)"
   expect_true(isfield(S, "title"))
-  expect_equivalent(
+  expect_equal(
     object = isfield(S, c("x", "y", "z", "title", "error")),
-    expected = c(TRUE, TRUE, FALSE, TRUE, FALSE)
+    expected = c(TRUE, TRUE, FALSE, TRUE, FALSE),
+    ignore_attr = TRUE
   )
 })
 
@@ -127,7 +128,7 @@ test_that("strcmp works as expected", {
   s4 <- matrix(c("A", "bc", "def", "G"), 2, byrow = TRUE)
   s5 <- matrix(c("B", "c", "def", "G"), 2, byrow = TRUE)
   expect_equal(strcmp(s1, s2), matrix(c(FALSE, FALSE, TRUE, FALSE), 2))
-  expect_equivalent(strcmp(s1, s3), c(FALSE, TRUE, FALSE, FALSE))
+  expect_equal(strcmp(s1, s3), c(FALSE, TRUE, FALSE, FALSE), ignore_attr = TRUE)
   expect_error(strcmp(s2, s3))
   expect_equal(strcmp(s4, s5), matrix(c(FALSE, TRUE, FALSE, TRUE), 2))
 })
@@ -163,11 +164,11 @@ test_that("sortrows works as expected", {
 })
 
 test_that("cell works as expected", {
-  expect_equivalent(cell(0), array(0, dim = c(0, 0)))
-  expect_equivalent(cell(1), array(0, dim = c(1, 1)))
-  expect_equivalent(cell(2), array(0, dim = c(2, 2)))
-  expect_equivalent(cell(3, 4), array(0, dim = c(3, 4)))
-  expect_equivalent(cell(5, 7, 6), array(0, dim = c(5, 7, 6)))
+  expect_equal(cell(0), array(0, dim = c(0, 0)), ignore_attr = TRUE)
+  expect_equal(cell(1), array(0, dim = c(1, 1)), ignore_attr = TRUE)
+  expect_equal(cell(2), array(0, dim = c(2, 2)), ignore_attr = TRUE)
+  expect_equal(cell(3, 4), array(0, dim = c(3, 4)), ignore_attr = TRUE)
+  expect_equal(cell(5, 7, 6), array(0, dim = c(5, 7, 6)), ignore_attr = TRUE)
 })
 
 test_that("blanks works as expected", {
