@@ -75,7 +75,7 @@ jobs:
         # Installing package dependencies ------------------------ #
         - name: Installing package dependencies
           run: |
-            install.packages(c("rcmdcheck", "covr", "invgamma", "rmutil", "testthat"))
+            install.packages(c("rcmdcheck", "covr", "testthat"))
           shell: Rscript {0}
 
         # Checking package --------------------------------------- #
