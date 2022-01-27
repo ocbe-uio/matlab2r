@@ -1,5 +1,3 @@
-context("Basic Matlab functions")
-
 test_that("rand works properly", {
   expect_equal(dim(rand()), c(1, 1))
   expect_equal(dim(rand(1, 2)), c(1, 2))
