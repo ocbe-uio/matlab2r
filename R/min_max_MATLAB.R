@@ -3,6 +3,7 @@
 #' @param X matrix
 #' @param indices return indices?
 #' @return Either a list or a vector
+#' @importFrom methods is
 #' @author Waldir Leoncio
 min_MATLAB <- function(X, indices = TRUE) {
   if (!is(X, "matrix")) X <- as.matrix(X)
