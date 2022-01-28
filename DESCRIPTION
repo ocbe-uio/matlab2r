@@ -9,6 +9,8 @@ Authors@R:
         role   = c("aut", "cre")
     )
 Description: Allows users familiar with MATLAB to use MATLAB-named functions in R.
+    Several basic MATLAB functions are written in this package to mimic the
+    behvior of their original counterparts, with more to come as this package grows.
 License: GPL (>= 3)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
