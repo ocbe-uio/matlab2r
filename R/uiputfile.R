@@ -6,7 +6,7 @@
 #' @export
 #' @return A list containing the name and the path of the file to be saved
 #' @examples
-#' \donttest{
+#' \dontrun{
 #'   uigetfile()
 #' }
 uiputfile <- function(filter = ".rda", title = "Save file") {
