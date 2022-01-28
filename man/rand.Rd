@@ -17,3 +17,7 @@ rand(r = 1, c = 1)
 \description{
 Imitates the behavior of \code{rand()} on Matlab
 }
+\examples{
+rand()
+rand(3, 2)
+}

@@ -11,6 +11,15 @@ colon(a, b)
 
 \item{b}{final number}
 }
+\value{
+A vector containing a sequence of integers going from a to b
+}
 \description{
-Simulates the function \code{colon()} and its equivalent \code{:} operator from Matlab, which have a similar but not quite equivalent behavior when compared to \code{seq()} and \code{:} in R.
+Simulates the function \code{colon()} and its equivalent \code{:}
+operator from Matlab, which have a similar but not quite equivalent behavior
+when compared to \code{seq()} and \code{:} in R.
+}
+\examples{
+colon(1, 4)
+colon(4, 8)
 }

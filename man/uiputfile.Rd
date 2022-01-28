@@ -11,7 +11,15 @@ uiputfile(filter = ".rda", title = "Save file")
 
 \item{title}{Title}
 }
+\value{
+A list containing the name and the path of the file to be saved
+}
 \description{
 This function intends to loosely mimic the behaviour of the
 homonymous Matlab function.
+}
+\examples{
+\donttest{
+  uigetfile()
+}
 }

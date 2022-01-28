@@ -11,6 +11,14 @@ sortrows(A, column = 1)
 
 \item{column}{ordering column}
 }
+\value{
+The A matrix sorted by the first row, then the second
+}
 \description{
 Emulates the behavior of the \code{sortrows} function on Matlab
+}
+\examples{
+mx <- matrix(c(3, 2, 2, 1, 1, 10, 0, pi), 4)
+mx
+sortrows(mx)
 }

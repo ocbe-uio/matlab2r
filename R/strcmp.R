@@ -4,6 +4,10 @@
 #' @param s2 second character element (string, vector or matrix)
 #' @return a logical element of the same type as the input
 #' @export
+#' @examples
+#' strcmp("yes", "no")
+#' strcmp("yes", "yes")
+#' strcmp("no", "no")
 strcmp <- function(s1, s2) {
   if (length(s1) == 1 & length(s2) == 1) {
     # Both are scalars, comparison is straightforward

@@ -4,6 +4,11 @@
 #' @description This function intends to loosely mimic the behaviour of the
 #' homonymous Matlab function.
 #' @export
+#' @return A list containing the name and the path of the file to be saved
+#' @examples
+#' \donttest{
+#'   uigetfile()
+#' }
 uiputfile <- function(filter = ".rda", title = "Save file") {
   # ==========================================================================
   # Processing input

@@ -22,3 +22,7 @@ An array of zeroes with the dimensions passed on call
 \description{
 Creates an array of zeros
 }
+\examples{
+cell(5)
+cell(5, 2)
+}

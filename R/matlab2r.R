@@ -1,5 +1,5 @@
 #' @title Convert Matlab function to R
-#' @description Performs basic syntax conversion from Matlab to R
+#' @description Performs basic syntax conversion from a Matlab function file to R
 #' @param filename name of the file
 #' @param output can be "asis", "clean", "save" or "diff"
 #' @param improve_formatting if `TRUE` (default), makes minor changes
@@ -7,10 +7,8 @@
 #' @param change_assignment if `TRUE` (default), uses `<-` as the assignment operator
 #' @param append if `FALSE` (default), overwrites file; otherwise, append
 #' output to input
-#' @return text converted to R, printed to screen or replacing input file
 #' @author Waldir Leoncio
 #' @importFrom utils write.table
-#' @export
 #' @note This function is intended to expedite the process of converting a
 #' Matlab function to R by making common replacements. It does not have the
 #' immediate goal of outputting a ready-to-use function. In other words,
@@ -19,8 +17,16 @@
 #' It is also advised to do a dry-run with `output = "clean"` and only switching
 #' to `output = "save"` when you are confident that no important code will be
 #' lost (for shorter functions, a careful visual inspection should suffice).
-matlab2r <- function(filename, output = "diff", improve_formatting = TRUE, change_assignment = TRUE,
-                     append = FALSE) {
+#' @return text converted to R, printed to screen or replacing input file
+#' @export
+#' @examples
+#' matlab_script <- system.file("extdata", "matlabDemo.m", package = "matlab2r")
+#' matlab2r(matlab_script)
+#' matlab2r(matlab_script, output = "clean")
+matlab2r <- function(
+  filename, output = "diff", improve_formatting = TRUE,
+  change_assignment = TRUE, append = FALSE
+) {
   # TODO: this function is too long! Split into subfunctions
   # (say, by rule and/or section)
   # ======================================================== #

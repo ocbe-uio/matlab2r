@@ -28,6 +28,13 @@ row vector, column vector, scalar, or an array with no dimensions of length
 This is basically a wrapper of drop() with a minor adjustment to adapt
 the output to what happens on Matlab
 }
+\examples{
+A <- array(dim = c(2, 1, 2))
+A[, , 1] <- c(1, 2)
+A[, , 2] <- c(3, 4)
+print(A)
+squeeze(A)
+}
 \author{
 Waldir Leoncio
 }

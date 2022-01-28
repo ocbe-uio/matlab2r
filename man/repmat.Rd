@@ -25,5 +25,16 @@ function on Matlab
 \note{
 The Matlab implementation of this function accepts \code{n} with length > 2.
 
-It should also be noted that a concatenated vector in R, e.g. \code{c(5, 2)}, becomes a column vector when coerced to matrix, even though it may look like a row vector at first glance. This is important to keep in mind when considering the expected output of this function. Vectors in R make sense to be seen as column vectors, given R's Statistics-oriented paradigm where variables are usually disposed as columns in a dataset.
+It should also be noted that a concatenated vector in R, e.g. \code{c(5, 2)},
+becomes a column vector when coerced to matrix, even though it may look like
+a row vector at first glance. This is important to keep in mind when
+considering the expected output of this function. Vectors in R make sense to
+be seen as column vectors, given R's Statistics-oriented paradigm where
+variables are usually disposed as columns in a dataset.
+}
+\examples{
+x <- matrix(1:4, 2)
+repmat(x, 1)
+repmat(x, 2)
+repmat(x, c(2, 3))
 }

@@ -9,6 +9,17 @@
 #' `array()` and makes it more similar to `replicate()`.
 #' @note The Matlab function also accepts as input the dismemberment of sz as
 #' scalars.
+#' @return the input matrix, reshaped according to the vector sz
+#' @export
+#' @examples
+#' mx <- matrix(1:4, 2)
+#' ra <- array(1:12, c(2, 3, 2))
+#'
+#' mx
+#' reshape(mx, c(1, 4))
+#'
+#' ra
+#' reshape(ra, c(3, 2, 2))
 reshape <- function(A, sz) {
   # Validation
   if (prod(sz) != prod(dim(A))) {

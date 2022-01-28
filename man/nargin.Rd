@@ -7,13 +7,20 @@
 nargin()
 }
 \value{
-An integer
+An integer indicating how many input arguments a function received.
 }
 \description{
 Returns the number of arguments passed to the parent function
 }
 \note{
 This function only makes sense inside another function
+}
+\examples{
+f <- function(x, y, z) return(nargin())
+f(pi)
+f(y = 6, z = 5)
+f(letters)
+f(letters, LETTERS, pi)
 }
 \references{
 https://stackoverflow.com/q/64422780/1169233

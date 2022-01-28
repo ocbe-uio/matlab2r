@@ -18,6 +18,10 @@ Create character vector of blanks
 \details{
 This function emulates the behavior of a homonimous function from Matlab
 }
+\examples{
+blanks(1)
+blanks(3)
+}
 \author{
 Waldir Leoncio
 }

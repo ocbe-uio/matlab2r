@@ -6,6 +6,10 @@
 #' lengths)
 #' @param ... Other dimensions
 #' @return An array of zeroes with the dimensions passed on call
+#' @export
+#' @examples
+#' cell(5)
+#' cell(5, 2)
 cell <- function(n, sz = c(n, n), expandable = FALSE, ...) {
 
   # Uglyly figuring out if the third arg is an extra dim --- #

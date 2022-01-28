@@ -9,9 +9,20 @@ isempty(x)
 \arguments{
 \item{x}{array}
 }
+\value{
+A logical value determining if x is empty
+}
 \description{
 Determine whether array is empty. An empty array, table, or timetable has at least one dimension with length 0, such as 0-by-0 or 0-by-5.
 }
 \details{
 Emulates the behavior of the \code{isempty} function on Matlab
+}
+\examples{
+isempty(array(dim = c(0, 2, 2)))
+isempty(matrix(rep(NA, 4), 2))
+isempty(matrix(rep(0, 4), 2))
+isempty(as.factor(c(NA, NA)))
+isempty(factor())
+isempty(matrix(rep("", 3)))
 }
