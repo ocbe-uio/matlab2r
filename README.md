@@ -53,6 +53,8 @@ A BibTeX entry for LaTeX users is
 [![cran](https://www.r-pkg.org/badges/version/matlab2r)](https://cran.r-project.org/package=matlab2r)
 [![downloads](http://cranlogs.r-pkg.org/badges/grand-total/matlab2r)](https://cran.r-project.org/package=matlab2r)
 [![license](https://img.shields.io/badge/license-GPL--3-blue.svg)](https://cran.r-project.org/web/licenses/GPL-3)
+[![DOI](https://zenodo.org/badge/452648821.svg)](https://zenodo.org/badge/latestdoi/452648821)
+
 
 ## Development version
 
