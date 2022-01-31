@@ -63,3 +63,4 @@ A BibTeX entry for LaTeX users is
 [![code size](https://img.shields.io/github/languages/code-size/ocbe-uio/matlab2r.svg)](https://github.com/ocbe-uio/matlab2r)
 [![check status](https://github.com/ocbe-uio/matlab2r/workflows/R-CMD-check/badge.svg)](https://github.com/ocbe-uio/matlab2r/actions)
 [![codecov](https://codecov.io/gh/ocbe-uio/matlab2r/branch/develop/graph/badge.svg?token=78YFRZKJO6)](https://codecov.io/gh/ocbe-uio/matlab2r)
+[![CodeFactor](https://www.codefactor.io/repository/github/ocbe-uio/matlab2r/badge/release)](https://www.codefactor.io/repository/github/ocbe-uio/matlab2r/overview/release)
