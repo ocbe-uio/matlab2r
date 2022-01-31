@@ -28,9 +28,25 @@ remotes::install_github("ocbe-uio/matlab2r")
 
 Found a bug? Want a new feature? Please post your thoughts [here](https://github.com/ocbe-uio/matlab2r/issues/new), all contributions are welcome and properly credited!
 
-# Badges
+# Citing
 
-The badges below summarize some (arguably) interesting information about this package.
+To cite package matlab2r in publications use:
+
+> Waldir Leoncio (2022). matlab2r: Translation Layer from MATLAB to R. R package version 1.0.0. https://CRAN.R-project.org/package=matlab2r
+
+A BibTeX entry for LaTeX users is
+
+```latex
+@Manual{,
+  title = {matlab2r: Translation Layer from MATLAB to R},
+  author = {Waldir Leoncio},
+  year = {2022},
+  note = {R package version 1.0.0},
+  url = {https://CRAN.R-project.org/package=matlab2r},
+}
+```
+
+# Badges
 
 ## Published version
 
