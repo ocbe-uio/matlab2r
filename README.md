@@ -21,9 +21,16 @@ A stable version is not yet available.
 
 The badges below summarize some (arguably) interesting information about this package.
 
-[![](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
-[![](https://img.shields.io/github/last-commit/ocbe-uio/matlab2r.svg)](https://github.com/ocbe-uio/matlab2r/commits/develop)
-[![](https://img.shields.io/github/languages/code-size/ocbe-uio/matlab2r.svg)](https://github.com/ocbe-uio/matlab2r)
-[![R build status](https://github.com/ocbe-uio/matlab2r/workflows/R-CMD-check/badge.svg)](https://github.com/ocbe-uio/matlab2r/actions)
+## Published version
+
+[![cran](https://www.r-pkg.org/badges/version/matlab2r)](https://cran.r-project.org/package=matlab2r)
+[![downloads](http://cranlogs.r-pkg.org/badges/grand-total/matlab2r)](https://cran.r-project.org/package=matlab2r)
+[![license](https://img.shields.io/badge/license-GPL--3-blue.svg)](https://cran.r-project.org/web/licenses/GPL-3)
+
+## Development version
+
+[![Project Status: Inactive – The project has reached a stable, usable state but is no longer being actively developed; support/maintenance will be provided as time allows.](https://www.repostatus.org/badges/latest/inactive.svg)](https://www.repostatus.org/#inactive)
+[![last commit](https://img.shields.io/github/last-commit/ocbe-uio/matlab2r.svg)](https://github.com/ocbe-uio/matlab2r/commits/develop)
+[![code size](https://img.shields.io/github/languages/code-size/ocbe-uio/matlab2r.svg)](https://github.com/ocbe-uio/matlab2r)
+[![check status](https://github.com/ocbe-uio/matlab2r/workflows/R-CMD-check/badge.svg)](https://github.com/ocbe-uio/matlab2r/actions)
 [![codecov](https://codecov.io/gh/ocbe-uio/matlab2r/branch/develop/graph/badge.svg?token=78YFRZKJO6)](https://codecov.io/gh/ocbe-uio/matlab2r)
-[![License: GPL-3](https://img.shields.io/badge/license-GPL--3-blue.svg)](https://cran.r-project.org/web/licenses/GPL-3)
