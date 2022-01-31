@@ -20,7 +20,7 @@ A user prompt
 Replicates the functionality of the homonymous function in Matlab (sans dialog box)
 }
 \examples{
-\donttest{
+\dontrun{
  name <- inputdlg("Type your name")
  paste("Hello,", name)
 }

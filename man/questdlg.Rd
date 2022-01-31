@@ -31,7 +31,7 @@ This function aims to loosely mimic the behavior of the
 questdlg function on Matlab
 }
 \examples{
-\donttest{
+\dontrun{
   ans <- questdlg("Do you want to continue?", "Continue?")
   if (tolower(substring(ans, 1, 1)) == "y") {
     message("You typed yes")

@@ -19,7 +19,7 @@ Loosely mimics the functionality of the \code{uigetfile} function on
 Matlab.
 }
 \examples{
-\donttest{
+\dontrun{
   uigetfile()
 }
 }

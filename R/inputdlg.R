@@ -6,7 +6,7 @@
 #' @return A user prompt
 #' @export
 #' @examples
-#' \donttest{
+#' \dontrun{
 #'  name <- inputdlg("Type your name")
 #'  paste("Hello,", name)
 #' }

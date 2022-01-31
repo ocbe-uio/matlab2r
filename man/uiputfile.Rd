@@ -19,7 +19,7 @@ This function intends to loosely mimic the behaviour of the
 homonymous Matlab function.
 }
 \examples{
-\donttest{
+\dontrun{
   uigetfile()
 }
 }

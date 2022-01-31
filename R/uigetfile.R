@@ -7,7 +7,7 @@
 #' @export
 #' @return A list containing the name of the file selected and its path
 #' @examples
-#' \donttest{
+#' \dontrun{
 #'   uigetfile()
 #' }
 uigetfile <- function(filter = "", title = "") {

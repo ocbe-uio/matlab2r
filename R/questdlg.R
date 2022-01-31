@@ -9,7 +9,7 @@
 #' @return Whatever is entered by the user after the prompt created by the function.
 #' @export
 #' @examples
-#' \donttest{
+#' \dontrun{
 #'   ans <- questdlg("Do you want to continue?", "Continue?")
 #'   if (tolower(substring(ans, 1, 1)) == "y") {
 #'     message("You typed yes")
