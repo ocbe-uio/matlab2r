@@ -8,14 +8,25 @@ functions in R.
 
 # Installation
 
-You can install the development version of matlab2r by running the following command
-in R (requires the `remotes` package to be installed beforehand):
+## Stable version
+
+matlab2r is available on CRAN and can be installed by running the following in an interactive R session:
+
+```R
+install.packages("matlab2r")
+```
+
+## Development version
+
+The development version of the package contains features and bug fixes that are yet to be published. On the other hand, it's much less stable. You can install the development version of matlab2r by running the following command in R (requires the `remotes` package to be installed beforehand):
 
 ```R
 remotes::install_github("ocbe-uio/matlab2r")
 ```
 
-A stable version is not yet available.
+# Contributing
+
+Found a bug? Want a new feature? Please post your thoughts [here](https://github.com/ocbe-uio/matlab2r/issues/new), all contributions are welcome and properly credited!
 
 # Badges
 
