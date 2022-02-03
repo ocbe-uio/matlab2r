@@ -128,6 +128,11 @@ matlab2r <- function(
   txt <- append(txt, paste0("\treturn(", out, ")\n}"))
 
   # Returning converted code ------------------------------- #
+  warning(
+    "Please pay special attention to parenthesis. MATLAB uses them for both",
+    "argument-passing and object-subsetting. ",
+    "The latter cases should be replaced by squared brackets."
+  )
   if (output == "asis") {
     return(txt)
   } else if (output == "clean") {
