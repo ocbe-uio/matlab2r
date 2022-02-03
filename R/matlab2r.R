@@ -85,7 +85,7 @@ matlab2r <- function(
   txt <- gsub("if (.+)", "if (\\1) {", txt) # FIXME: paste comments after {
   txt <- gsub("else$", "} else {", txt)
   txt <- gsub("elseif", "} else if", txt)
-  txt <- gsub("while (.+)", "while \\1 {", txt)
+  txt <- gsub("while (.+)", "while (\\1) {", txt)
 
   # MATLAB-equivalent functions in R
   txt <- gsub("gamma_ln", "log_gamma", txt)
