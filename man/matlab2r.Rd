@@ -9,7 +9,8 @@ matlab2r(
   output = "diff",
   improve_formatting = TRUE,
   change_assignment = TRUE,
-  append = FALSE
+  append = FALSE,
+  restyle = FALSE
 )
 }
 \arguments{
@@ -24,6 +25,9 @@ to conform to best-practice formatting conventions}
 
 \item{append}{if \code{FALSE} (default), overwrites file; otherwise, append
 output to input}
+
+\item{restyle}{if \code{TRUE}, will restyle the output with styler
+(only for \code{output = "save"})}
 }
 \value{
 text converted to R, printed to screen or replacing input file

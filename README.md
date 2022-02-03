@@ -58,8 +58,7 @@ A BibTeX entry for LaTeX users is
 
 ## Development version
 
-[![Project Status: Inactive – The project has reached a stable, usable state but is no longer being actively developed; support/maintenance will be provided as time allows.](https://www.repostatus.org/badges/latest/inactive.svg)](https://www.repostatus.org/#inactive)
-[![last commit](https://img.shields.io/github/last-commit/ocbe-uio/matlab2r.svg)](https://github.com/ocbe-uio/matlab2r/commits/develop)
+[![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)[![last commit](https://img.shields.io/github/last-commit/ocbe-uio/matlab2r.svg)](https://github.com/ocbe-uio/matlab2r/commits/develop)
 [![code size](https://img.shields.io/github/languages/code-size/ocbe-uio/matlab2r.svg)](https://github.com/ocbe-uio/matlab2r)
 [![check status](https://github.com/ocbe-uio/matlab2r/workflows/R-CMD-check/badge.svg)](https://github.com/ocbe-uio/matlab2r/actions)
 [![codecov](https://codecov.io/gh/ocbe-uio/matlab2r/branch/develop/graph/badge.svg?token=78YFRZKJO6)](https://codecov.io/gh/ocbe-uio/matlab2r)

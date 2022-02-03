@@ -7,8 +7,11 @@
 #' @param change_assignment if `TRUE` (default), uses `<-` as the assignment operator
 #' @param append if `FALSE` (default), overwrites file; otherwise, append
 #' output to input
+#' @param restyle if `TRUE`, will restyle the output with styler
+#' (only for \code{output = "save"})
 #' @author Waldir Leoncio
 #' @importFrom utils write.table
+#' @importFrom styler style_file
 #' @note This function is intended to expedite the process of converting a
 #' Matlab function to R by making common replacements. It does not have the
 #' immediate goal of outputting a ready-to-use function. In other words,
@@ -25,7 +28,7 @@
 #' matlab2r(matlab_script, output = "clean")
 matlab2r <- function(
   filename, output = "diff", improve_formatting = TRUE,
-  change_assignment = TRUE, append = FALSE
+  change_assignment = TRUE, append = FALSE, restyle = FALSE
 ) {
   # TODO: this function is too long! Split into subfunctions
   # (say, by rule and/or section)
@@ -47,7 +50,7 @@ matlab2r <- function(
   # Uncommenting ------------------------------------------- #
   txt <- gsub("^#\\s?(.+)", "\\1", txt)
 
-  # Output variable ---------------------------------------- #
+  # Output variable ------------------------------------ ---- #
   out <- gsub(
     pattern     = "\\t*function ((\\S|\\,\\s)+)\\s?=\\s?(\\w+)\\((.+)\\)",
     replacement = "\\1",
@@ -125,21 +128,25 @@ matlab2r <- function(
   txt <- append(txt, paste0("\treturn(", out, ")\n}"))
 
   # Returning converted code ------------------------------- #
+  warning(
+    "Please pay special attention to parenthesis. MATLAB uses them for both",
+    "argument-passing and object-subsetting. ",
+    "The latter cases should be replaced by squared brackets."
+  )
   if (output == "asis") {
     return(txt)
   } else if (output == "clean") {
     return(cat(txt, sep = "\n"))
   } else if (output == "save") {
-    return(
-      write.table(
-        x         = txt,
-        file      = filename,
-        quote     = FALSE,
-        row.names = FALSE,
-        col.names = FALSE,
-        append    = append
-      )
+    write.table(
+      x         = txt,
+      file      = filename,
+      quote     = FALSE,
+      row.names = FALSE,
+      col.names = FALSE,
+      append    = append
     )
+    if (restyle) style_file(filename)
   } else if (output == "diff") {
     diff_text <- vector(mode = "character", length = (2 * length(original) + 1))
     for (i in seq_along(txt)) {
