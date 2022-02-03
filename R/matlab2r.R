@@ -129,7 +129,7 @@ matlab2r <- function(
 
   # Returning converted code ------------------------------- #
   warning(
-    "Please pay special attention to parenthesis. MATLAB uses them for both",
+    "Please pay special attention to parentheses. MATLAB uses them for both ",
     "argument-passing and object-subsetting. ",
     "The latter cases should be replaced by squared brackets."
   )
