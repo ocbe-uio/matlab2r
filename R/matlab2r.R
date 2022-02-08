@@ -146,7 +146,10 @@ matlab2r <- function(
       col.names = FALSE,
       append    = append
     )
-    if (restyle) style_file(filename)
+    if (restyle) {
+      message("Fix any syntax errors and press enter to restyle file")
+      style_file(filename)
+    }
   } else if (output == "diff") {
     diff_text <- vector(mode = "character", length = (2 * length(original) + 1))
     for (i in seq_along(txt)) {
