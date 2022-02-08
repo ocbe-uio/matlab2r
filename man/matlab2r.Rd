@@ -10,7 +10,7 @@ matlab2r(
   improve_formatting = TRUE,
   change_assignment = TRUE,
   append = FALSE,
-  restyle = FALSE
+  restyle = !improve_formatting
 )
 }
 \arguments{

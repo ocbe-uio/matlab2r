@@ -28,7 +28,7 @@
 #' matlab2r(matlab_script, output = "clean")
 matlab2r <- function(
   filename, output = "diff", improve_formatting = TRUE,
-  change_assignment = TRUE, append = FALSE, restyle = FALSE
+  change_assignment = TRUE, append = FALSE, restyle = !improve_formatting
 ) {
   # TODO: this function is too long! Split into subfunctions
   # (say, by rule and/or section)
@@ -101,6 +101,9 @@ matlab2r <- function(
   )
   txt <- gsub("\\(:\\)", "[, ]", txt)
   txt <- gsub("(.+)(\\[|\\():,end(\\]|\\()", "\\1[, ncol()]", txt)
+  for (i in seq_len(3)) {
+    txt <- gsub("\\((.*):(.*)\\)", "(\\1 \\2)", txt)
+  }
 
   # Formatting --------------------------------------------- #
   if (improve_formatting) {
@@ -146,7 +149,10 @@ matlab2r <- function(
       col.names = FALSE,
       append    = append
     )
-    if (restyle) style_file(filename)
+    if (restyle) {
+      readline("Fix any syntax errors and press enter to restyle file")
+      style_file(filename)
+    }
   } else if (output == "diff") {
     diff_text <- vector(mode = "character", length = (2 * length(original) + 1))
     for (i in seq_along(txt)) {
