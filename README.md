@@ -21,7 +21,7 @@ install.packages("matlab2r")
 The development version of the package contains features and bug fixes that are yet to be published. On the other hand, it's much less stable. You can install the development version of matlab2r by running the following command in R (requires the `remotes` package to be installed beforehand):
 
 ```R
-remotes::install_github("ocbe-uio/matlab2r")
+remotes::install_github("ocbe-uio/matlab2r", "develop")
 ```
 
 # Contributing
