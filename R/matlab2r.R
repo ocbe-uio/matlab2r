@@ -92,6 +92,9 @@ matlab2r <- function(
   txt <- gsub("nchoosek", "choose", txt)
   txt <- gsub("isempty", "is.null", txt)
 
+  # Commenting out global variables ------------------------ #
+  txt <- gsub("global", "# global", txt)
+
   # Subsets ------------------------------------------------ #
   ass_op <- ifelse(change_assignment, "<-", "=")
   txt <- gsub(
