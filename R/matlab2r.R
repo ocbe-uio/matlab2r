@@ -28,7 +28,7 @@
 #' matlab2r(matlab_script, output = "clean")
 matlab2r <- function(
   filename, output = "diff", improve_formatting = TRUE,
-  change_assignment = TRUE, append = FALSE, restyle = FALSE
+  change_assignment = TRUE, append = FALSE, restyle = !improve_formatting
 ) {
   # TODO: this function is too long! Split into subfunctions
   # (say, by rule and/or section)
