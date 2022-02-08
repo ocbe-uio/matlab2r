@@ -147,7 +147,7 @@ matlab2r <- function(
       append    = append
     )
     if (restyle) {
-      message("Fix any syntax errors and press enter to restyle file")
+      readline("Fix any syntax errors and press enter to restyle file")
       style_file(filename)
     }
   } else if (output == "diff") {
