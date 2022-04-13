@@ -58,7 +58,11 @@ matlab2r <- function(
   if (substring(out, 1, 1) == "[") {
     out <- strsplit(out, "(\\,|\\[|\\]|\\s)")[[1]]
     out <- out[which(out != "")]
-    out <- sapply(seq_along(out), function(x) paste(out[x], "=", out[x]))
+    out <- vapply(
+      X   = seq_along(out),
+      FUN = function(x) paste(out[x], "=", out[x]),
+      FUN.VALUE = vector("character", length(out))
+    )
     out <- paste0("list(", paste(out, collapse = ", "), ")")
   }
 

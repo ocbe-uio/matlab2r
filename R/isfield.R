@@ -14,5 +14,9 @@
 #' isfield(S, "title")
 #' isfield(S, "z")
 isfield <- function(x, field) {
-  sapply(field, function(f) f %in% names(x))
+  vapply(
+    X = field,
+    FUN = function(f) f %in% names(x),
+    FUN.VALUE = vector("logical", 1)
+  )
 }
