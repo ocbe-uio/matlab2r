@@ -30,7 +30,6 @@ matlab2r <- function(
   filename, output = "diff", improve_formatting = TRUE,
   change_assignment = TRUE, append = FALSE, restyle = !improve_formatting
 ) {
-  # TODO: this function is too long! Split into subfunctions
   # (say, by rule and/or section)
   # ======================================================== #
   # Verification                                             #
@@ -55,11 +54,15 @@ matlab2r <- function(
     pattern     = "\\t*function ((\\S|\\,\\s)+)\\s?=\\s?(\\w+)\\((.+)\\)",
     replacement = "\\1",
     x           = txt[1]
-  ) # TODO: improve by detecting listed outputs
+  )
   if (substring(out, 1, 1) == "[") {
     out <- strsplit(out, "(\\,|\\[|\\]|\\s)")[[1]]
     out <- out[which(out != "")]
-    out <- sapply(seq_along(out), function(x) paste(out[x], "=", out[x]))
+    out <- vapply(
+      X   = seq_along(out),
+      FUN = function(x) paste(out[x], "=", out[x]),
+      FUN.VALUE = vector("character", length(out))
+    )
     out <- paste0("list(", paste(out, collapse = ", "), ")")
   }
 
@@ -82,7 +85,7 @@ matlab2r <- function(
   # Loops and if-statements
   txt <- gsub("for (.+)=(.+)", "for (\\1 in \\2) {", txt)
   txt <- gsub("end$", "}", txt)
-  txt <- gsub("if (.+)", "if (\\1) {", txt) # FIXME: paste comments after {
+  txt <- gsub("if (.+)", "if (\\1) {", txt)
   txt <- gsub("else$", "} else {", txt)
   txt <- gsub("elseif", "} else if", txt)
   txt <- gsub("while (.+)", "while (\\1) {", txt)

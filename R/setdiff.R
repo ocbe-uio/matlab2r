@@ -27,6 +27,5 @@ setdiff <- function(A, B, legacy = FALSE) {
     }
     values <- C[-exclude_rows, ]
   }
-  # TODO: add support for indices (if necessary)
   return(values)
 }
