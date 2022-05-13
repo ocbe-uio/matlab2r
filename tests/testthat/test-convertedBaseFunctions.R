@@ -239,6 +239,16 @@ test_that("setdiff works as expected", {
     Var3 = c(TRUE, TRUE)
   )
   row.names(C) <- c(2L, 4L)
-  expect_equal(setdiff(A, B), C) # TODO: implement for data frames
-  # TODO: add more examples from https://se.mathworks.com/help/matlab/ref/double.setdiff.html;jsessionid=0d8d42582d4d299b8224403899f1
+  expect_equal(setdiff(A, B), C)
+})
+
+test_that("gammaln works as expected", {
+  expect_equal(gammaln(8), 8.5252, tolerance = 1e-4)
+  expect_equal(gammaln(0), Inf)
+  expect_equal(gammaln(
+    matrix(1:4, 2)),
+    matrix(c(0, 0, 0.6931, 1.7918), 2),
+    tolerance = 1e-4
+  )
+  expect_equal(gammaln(-4:1), c(rep(Inf, 5), 0))
 })

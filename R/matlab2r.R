@@ -7,8 +7,11 @@
 #' @param change_assignment if `TRUE` (default), uses `<-` as the assignment operator
 #' @param append if `FALSE` (default), overwrites file; otherwise, append
 #' output to input
+#' @param restyle if `TRUE`, will restyle the output with styler
+#' (only for \code{output = "save"})
 #' @author Waldir Leoncio
 #' @importFrom utils write.table
+#' @importFrom styler style_file
 #' @note This function is intended to expedite the process of converting a
 #' Matlab function to R by making common replacements. It does not have the
 #' immediate goal of outputting a ready-to-use function. In other words,
@@ -25,9 +28,8 @@
 #' matlab2r(matlab_script, output = "clean")
 matlab2r <- function(
   filename, output = "diff", improve_formatting = TRUE,
-  change_assignment = TRUE, append = FALSE
+  change_assignment = TRUE, append = FALSE, restyle = !improve_formatting
 ) {
-  # TODO: this function is too long! Split into subfunctions
   # (say, by rule and/or section)
   # ======================================================== #
   # Verification                                             #
@@ -47,16 +49,20 @@ matlab2r <- function(
   # Uncommenting ------------------------------------------- #
   txt <- gsub("^#\\s?(.+)", "\\1", txt)
 
-  # Output variable ---------------------------------------- #
+  # Output variable ------------------------------------ ---- #
   out <- gsub(
     pattern     = "\\t*function ((\\S|\\,\\s)+)\\s?=\\s?(\\w+)\\((.+)\\)",
     replacement = "\\1",
     x           = txt[1]
-  ) # TODO: improve by detecting listed outputs
+  )
   if (substring(out, 1, 1) == "[") {
     out <- strsplit(out, "(\\,|\\[|\\]|\\s)")[[1]]
     out <- out[which(out != "")]
-    out <- sapply(seq_along(out), function(x) paste(out[x], "=", out[x]))
+    out <- vapply(
+      X   = seq_along(out),
+      FUN = function(x) paste(out[x], "=", out[x]),
+      FUN.VALUE = vector("character", length(out))
+    )
     out <- paste0("list(", paste(out, collapse = ", "), ")")
   }
 
@@ -79,15 +85,18 @@ matlab2r <- function(
   # Loops and if-statements
   txt <- gsub("for (.+)=(.+)", "for (\\1 in \\2) {", txt)
   txt <- gsub("end$", "}", txt)
-  txt <- gsub("if (.+)", "if (\\1) {", txt) # FIXME: paste comments after {
+  txt <- gsub("if (.+)", "if (\\1) {", txt)
   txt <- gsub("else$", "} else {", txt)
   txt <- gsub("elseif", "} else if", txt)
-  txt <- gsub("while (.+)", "while \\1 {", txt)
+  txt <- gsub("while (.+)", "while (\\1) {", txt)
 
   # MATLAB-equivalent functions in R
   txt <- gsub("gamma_ln", "log_gamma", txt)
   txt <- gsub("nchoosek", "choose", txt)
   txt <- gsub("isempty", "is.null", txt)
+
+  # Commenting out global variables ------------------------ #
+  txt <- gsub("global", "# global", txt)
 
   # Subsets ------------------------------------------------ #
   ass_op <- ifelse(change_assignment, "<-", "=")
@@ -98,6 +107,9 @@ matlab2r <- function(
   )
   txt <- gsub("\\(:\\)", "[, ]", txt)
   txt <- gsub("(.+)(\\[|\\():,end(\\]|\\()", "\\1[, ncol()]", txt)
+  for (i in seq_len(3)) {
+    txt <- gsub("\\((.*):(.*)\\)", "(\\1 \\2)", txt)
+  }
 
   # Formatting --------------------------------------------- #
   if (improve_formatting) {
@@ -125,21 +137,28 @@ matlab2r <- function(
   txt <- append(txt, paste0("\treturn(", out, ")\n}"))
 
   # Returning converted code ------------------------------- #
+  warning(
+    "Please pay special attention to parentheses. MATLAB uses them for both ",
+    "argument-passing and object-subsetting. ",
+    "The latter cases should be replaced by squared brackets."
+  )
   if (output == "asis") {
     return(txt)
   } else if (output == "clean") {
     return(cat(txt, sep = "\n"))
   } else if (output == "save") {
-    return(
-      write.table(
-        x         = txt,
-        file      = filename,
-        quote     = FALSE,
-        row.names = FALSE,
-        col.names = FALSE,
-        append    = append
-      )
+    write.table(
+      x         = txt,
+      file      = filename,
+      quote     = FALSE,
+      row.names = FALSE,
+      col.names = FALSE,
+      append    = append
     )
+    if (restyle) {
+      readline("Fix any syntax errors and press enter to restyle file")
+      style_file(filename)
+    }
   } else if (output == "diff") {
     diff_text <- vector(mode = "character", length = (2 * length(original) + 1))
     for (i in seq_along(txt)) {

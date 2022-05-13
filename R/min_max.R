@@ -13,7 +13,11 @@
 min <- function(X, indices = TRUE) {
   if (!is(X, "matrix")) X <- as.matrix(X)
   mins <- apply(X, 2, base::min)
-  idx <- sapply(seq_len(ncol(X)), function(x) match(mins[x], X[, x]))
+  idx <- vapply(
+    X = seq_len(ncol(X)),
+    FUN = function(x) match(mins[x], X[, x]),
+    FUN.VALUE = vector("numeric", ncol(X))
+  )
   if (indices) {
     return(list(mins = mins, idx = idx))
   } else {
@@ -35,7 +39,11 @@ min <- function(X, indices = TRUE) {
 max <- function(X, indices = TRUE) {
   if (!is(X, "matrix")) X <- as.matrix(X)
   maxs <- apply(X, 2, base::max)
-  idx <- sapply(seq_len(ncol(X)), function(x) match(maxs[x], X[, x]))
+  idx <- vapply(
+    X = seq_len(ncol(X)),
+    FUN = function(x) match(maxs[x], X[, x]),
+    FUN.VALUE = ncol(X)
+  )
   if (indices) {
     return(list(maxs = maxs, idx = idx))
   } else {

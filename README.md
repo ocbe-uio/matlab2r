@@ -21,7 +21,7 @@ install.packages("matlab2r")
 The development version of the package contains features and bug fixes that are yet to be published. On the other hand, it's much less stable. You can install the development version of matlab2r by running the following command in R (requires the `remotes` package to be installed beforehand):
 
 ```R
-remotes::install_github("ocbe-uio/matlab2r")
+remotes::install_github("ocbe-uio/matlab2r", "develop")
 ```
 
 # Contributing
@@ -53,11 +53,13 @@ A BibTeX entry for LaTeX users is
 [![cran](https://www.r-pkg.org/badges/version/matlab2r)](https://cran.r-project.org/package=matlab2r)
 [![downloads](http://cranlogs.r-pkg.org/badges/grand-total/matlab2r)](https://cran.r-project.org/package=matlab2r)
 [![license](https://img.shields.io/badge/license-GPL--3-blue.svg)](https://cran.r-project.org/web/licenses/GPL-3)
+[![DOI](https://zenodo.org/badge/452648821.svg)](https://zenodo.org/badge/latestdoi/452648821)
+
 
 ## Development version
 
-[![Project Status: Inactive – The project has reached a stable, usable state but is no longer being actively developed; support/maintenance will be provided as time allows.](https://www.repostatus.org/badges/latest/inactive.svg)](https://www.repostatus.org/#inactive)
-[![last commit](https://img.shields.io/github/last-commit/ocbe-uio/matlab2r.svg)](https://github.com/ocbe-uio/matlab2r/commits/develop)
+[![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)[![last commit](https://img.shields.io/github/last-commit/ocbe-uio/matlab2r.svg)](https://github.com/ocbe-uio/matlab2r/commits/develop)
 [![code size](https://img.shields.io/github/languages/code-size/ocbe-uio/matlab2r.svg)](https://github.com/ocbe-uio/matlab2r)
 [![check status](https://github.com/ocbe-uio/matlab2r/workflows/R-CMD-check/badge.svg)](https://github.com/ocbe-uio/matlab2r/actions)
 [![codecov](https://codecov.io/gh/ocbe-uio/matlab2r/branch/develop/graph/badge.svg?token=78YFRZKJO6)](https://codecov.io/gh/ocbe-uio/matlab2r)
+[![CodeFactor](https://www.codefactor.io/repository/github/ocbe-uio/matlab2r/badge/develop)](https://www.codefactor.io/repository/github/ocbe-uio/matlab2r/overview/develop)
