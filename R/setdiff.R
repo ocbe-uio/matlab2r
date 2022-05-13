@@ -12,6 +12,7 @@
 #' B <- c(2, 4, 6)
 #' setdiff(A, B)
 setdiff <- function(A, B, legacy = FALSE) {
+  values <- vector(typeof(A))
   if (legacy) message("legacy=TRUE not supported. Ignoring.")
   if (is(A, "numeric") & is(B, "numeric")) {
     values <- sort(unique(A[is.na(match(A, B))]))
