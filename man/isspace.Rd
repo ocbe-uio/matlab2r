@@ -18,7 +18,7 @@ elsewhere.
 Determine which characters are space characters
 }
 \note{
-Recognized whitespace characters are \verb{} and \verb{\\\\t}.
+Recognized whitespace characters are \verb{ } and \verb{\\\\t}.
 }
 \examples{
 chr <- "123 Main St."
