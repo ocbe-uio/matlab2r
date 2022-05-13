@@ -135,8 +135,10 @@ matlab2r <- function(
       replacement = paste0("\\1 ", ass_op, " \\4"),
       x = txt
     )
-    txt <- gsub("%(\\s?)(\\w)", "# \\2", txt)
   }
+
+  # Comments ----------------------------------------------- #
+  txt <- gsub("[^']%(\\s?)(\\w)", "# \\2", txt)
 
   # Adding output and end-of-file brace -------------------- #
   txt <- append(txt, paste0("\treturn(", out, ")\n}"))
