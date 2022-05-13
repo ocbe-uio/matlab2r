@@ -83,7 +83,7 @@ matlab2r <- function(
   txt <- gsub(";", "", txt)
 
   # Loops and if-statements
-  txt <- gsub("for (.+)=(.+)", "for (\\1 in \\2) {", txt)
+  txt <- gsub("for (\\S+)\\s?=\\s?(\\S+)", "for (\\1 in \\2) {", txt)
   txt <- gsub("end$", "}", txt)
   txt <- gsub("if (.+)", "if (\\1) {", txt)
   txt <- gsub("else$", "} else {", txt)
