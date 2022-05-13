@@ -1,6 +1,6 @@
 Package: matlab2r
 Title: Translation Layer from MATLAB to R
-Version: 1.1.0
+Version: 1.1.1
 Authors@R:
     person(
         given  = "Waldir",
@@ -20,4 +20,4 @@ Suggests:
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
 Imports: methods, styler
-Date: 2022-04-13
+Date: 2022-05-13

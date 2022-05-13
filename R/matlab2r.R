@@ -61,7 +61,7 @@ matlab2r <- function(
     out <- vapply(
       X   = seq_along(out),
       FUN = function(x) paste(out[x], "=", out[x]),
-      FUN.VALUE = vector("character", length(out))
+      FUN.VALUE = vector("character", 1)
     )
     out <- paste0("list(", paste(out, collapse = ", "), ")")
   }
@@ -83,7 +83,7 @@ matlab2r <- function(
   txt <- gsub(";", "", txt)
 
   # Loops and if-statements
-  txt <- gsub("for (.+)=(.+)", "for (\\1 in \\2) {", txt)
+  txt <- gsub("for (\\S+)\\s?=\\s?(\\S+)", "for (\\1 in \\2) {", txt)
   txt <- gsub("end$", "}", txt)
   txt <- gsub("if (.+)", "if (\\1) {", txt)
   txt <- gsub("else$", "} else {", txt)
@@ -107,9 +107,6 @@ matlab2r <- function(
   )
   txt <- gsub("\\(:\\)", "[, ]", txt)
   txt <- gsub("(.+)(\\[|\\():,end(\\]|\\()", "\\1[, ncol()]", txt)
-  for (i in seq_len(3)) {
-    txt <- gsub("\\((.*):(.*)\\)", "(\\1 \\2)", txt)
-  }
 
   # Formatting --------------------------------------------- #
   if (improve_formatting) {
