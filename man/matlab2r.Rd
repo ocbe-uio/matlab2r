@@ -10,7 +10,8 @@ matlab2r(
   improve_formatting = TRUE,
   change_assignment = TRUE,
   append = FALSE,
-  restyle = !improve_formatting
+  restyle = !improve_formatting,
+  skip_lines = NULL
 )
 }
 \arguments{
@@ -28,6 +29,9 @@ output to input}
 
 \item{restyle}{if \code{TRUE}, will restyle the output with styler
 (only for \code{output = "save"})}
+
+\item{skip_lines}{vector of lines to be skipped. These will be commented out
+and tagged as TODO, instead.}
 }
 \value{
 text converted to R, printed to screen or replacing input file
