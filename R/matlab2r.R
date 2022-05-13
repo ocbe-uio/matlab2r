@@ -109,7 +109,7 @@ matlab2r <- function(
   # Subsets ------------------------------------------------ #
   ass_op <- ifelse(change_assignment, "<-", "=")
   txt <- gsub(
-    pattern = "([^\\(]+)\\(([^\\(]+)\\)=(.+)",
+    pattern = "([^(]+)\\(([^\\(]+)\\)[^=]=(.+)",
     replacement = paste0("\\1[\\2] ", ass_op, "\\3"),
     x = txt
   )
@@ -120,21 +120,24 @@ matlab2r <- function(
   if (improve_formatting) {
     txt <- gsub("(.),(\\S)", "\\1, \\2", txt)
     # Math operators
-    txt <- gsub("(\\S)\\+(\\S)", "\\1 + \\2", txt)
-    txt <- gsub("([^e\\s])\\-(\\S)", "\\1 - \\2", txt)
-    txt <- gsub("(\\S)\\*(\\S)", "\\1 * \\2", txt)
-    txt <- gsub("(\\S)\\/(\\S)", "\\1 / \\2", txt)
+    txt <- gsub("(\\S)\\s?\\+\\s?(\\S)", "\\1 + \\2", txt)
+    txt <- gsub("([^e\\s])\\s?\\-\\s?(\\S)", "\\1 - \\2", txt)
+    txt <- gsub("(\\S)\\s?\\*\\s?(\\S)", "\\1 * \\2", txt)
+    txt <- gsub("(\\S)\\\\s?/\\s?(\\S)", "\\1 / \\2", txt)
     # Logic operators
     txt <- gsub("~", "!", txt)
-    txt <- gsub("(\\S)>=(\\S)", "\\1 >= \\2", txt)
-    txt <- gsub("(\\S)<=(\\S)", "\\1 <= \\2", txt)
-    txt <- gsub("(\\S)==(\\S)", "\\1 == \\2", txt)
+    txt <- gsub("(\\S)\\s?>=\\s?(\\S)", "\\1 >= \\2", txt)
+    txt <- gsub("(\\S)\\s?<=\\s?(\\S)", "\\1 <= \\2", txt)
+    txt <- gsub("(\\S)\\s?>\\s?(\\S)", "\\1 > \\2", txt)
+    txt <- gsub("(\\S)\\s?<\\s?(\\S)", "\\1 < \\2", txt)
+    txt <- gsub("(\\S)\\s?==\\s?(\\S)", "\\1 == \\2", txt)
     # Assignment
     txt <- gsub(
-      pattern = "(\\w)(\\s?)=(\\s?)(\\w)",
-      replacement = paste0("\\1 ", ass_op, " \\4"),
+      pattern = "(\\w)\\s=\\s(\\w)",
+      replacement = paste("\\1", ass_op, "\\2"),
       x = txt
     )
+    txt <- gsub(" < - ", " <- ", txt) # undoes improper formatting of ass_op
   }
 
   # Comments ----------------------------------------------- #
