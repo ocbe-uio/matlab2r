@@ -30,21 +30,7 @@ Found a bug? Want a new feature? Please post your thoughts [here](https://github
 
 # Citing
 
-To cite package matlab2r in publications use:
-
-> Waldir Leoncio (2022). matlab2r: Translation Layer from MATLAB to R. R package version 1.0.0. https://CRAN.R-project.org/package=matlab2r
-
-A BibTeX entry for LaTeX users is
-
-```latex
-@Manual{,
-  title = {matlab2r: Translation Layer from MATLAB to R},
-  author = {Waldir Leoncio},
-  year = {2022},
-  note = {R package version 1.0.0},
-  url = {https://CRAN.R-project.org/package=matlab2r},
-}
-```
+To cite package matlab2r in publications, run `citation(matlab2r)` and check the produced output.
 
 # Badges
 
