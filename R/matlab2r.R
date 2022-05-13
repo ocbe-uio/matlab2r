@@ -113,7 +113,7 @@ matlab2r <- function(
     replacement = paste0("\\1[\\2] ", ass_op, "\\3"),
     x = txt
   )
-  txt <- gsub("\\(:\\)", "[, ]", txt)
+  txt <- gsub("\\(:,\\s?([^)]+)\\)", "[, \\1]", txt)
   txt <- gsub("(.+)(\\[|\\():,end(\\]|\\()", "\\1[, ncol()]", txt)
 
   # Formatting --------------------------------------------- #
@@ -121,7 +121,7 @@ matlab2r <- function(
     txt <- gsub("(.),(\\S)", "\\1, \\2", txt)
     # Math operators
     txt <- gsub("(\\S)\\+(\\S)", "\\1 + \\2", txt)
-    txt <- gsub("(\\S)\\-(\\S)", "\\1 - \\2", txt)
+    txt <- gsub("([^e\\s])\\-(\\S)", "\\1 - \\2", txt)
     txt <- gsub("(\\S)\\*(\\S)", "\\1 * \\2", txt)
     txt <- gsub("(\\S)\\/(\\S)", "\\1 / \\2", txt)
     # Logic operators
@@ -138,7 +138,8 @@ matlab2r <- function(
   }
 
   # Comments ----------------------------------------------- #
-  txt <- gsub("[^']%(\\s?)(\\w)", "# \\2", txt)
+  txt <- gsub("[^']%(\\s?)(\\w)", "# \\2", txt) # excludes fprintf('%s')
+  txt <- gsub("^\\s*%(.+)", "# \\1", txt)  # commented-out code
 
   # Adding output and end-of-file brace -------------------- #
   txt <- append(txt, paste0("\treturn(", out, ")\n}"))
