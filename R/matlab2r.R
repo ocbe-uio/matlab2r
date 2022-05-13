@@ -9,6 +9,8 @@
 #' output to input
 #' @param restyle if `TRUE`, will restyle the output with styler
 #' (only for \code{output = "save"})
+#' @param skip_lines vector of lines to be skipped. These will be commented out
+#' and tagged as TODO, instead.
 #' @author Waldir Leoncio
 #' @importFrom utils write.table
 #' @importFrom styler style_file
@@ -28,7 +30,8 @@
 #' matlab2r(matlab_script, output = "clean")
 matlab2r <- function(
   filename, output = "diff", improve_formatting = TRUE,
-  change_assignment = TRUE, append = FALSE, restyle = !improve_formatting
+  change_assignment = TRUE, append = FALSE, restyle = !improve_formatting,
+  skip_lines = NULL
 ) {
   # (say, by rule and/or section)
   # ======================================================== #
@@ -48,6 +51,11 @@ matlab2r <- function(
 
   # Uncommenting ------------------------------------------- #
   txt <- gsub("^#\\s?(.+)", "\\1", txt)
+
+  # Commenting out skipped lines ---------------------------- #
+  if (!is.null(skip_lines)) {
+    txt[skip_lines] <- gsub("(.+)", "# TODO: \\1", txt[skip_lines])
+  }
 
   # Output variable ------------------------------------ ---- #
   out <- gsub(
