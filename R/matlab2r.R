@@ -107,9 +107,6 @@ matlab2r <- function(
   )
   txt <- gsub("\\(:\\)", "[, ]", txt)
   txt <- gsub("(.+)(\\[|\\():,end(\\]|\\()", "\\1[, ncol()]", txt)
-  for (i in seq_len(3)) {
-    txt <- gsub("\\((.*):(.*)\\)", "(\\1 \\2)", txt)
-  }
 
   # Formatting --------------------------------------------- #
   if (improve_formatting) {
