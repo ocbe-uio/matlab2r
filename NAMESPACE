@@ -3,6 +3,7 @@
 export(blanks)
 export(cell)
 export(colon)
+export(disp)
 export(find)
 export(fix)
 export(gammaln)
