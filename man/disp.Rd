@@ -14,8 +14,8 @@ The value of \code{X}
 }
 \description{
 \code{disp(X)} displays the value of variable \code{X}
-without printing the variable name. This is a paper-thin wrapper around
-\code{print}
+without printing the variable name. This is a wrapper around \code{base::cat()}
+that includes a breakline in the end.
 }
 \examples{
 A <- c(15, 150)

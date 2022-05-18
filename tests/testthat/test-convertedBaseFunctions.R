@@ -256,6 +256,6 @@ test_that("gammaln works as expected", {
 test_that("disp works", {
   A <- c(15, 150)
   S <- 'Hello World.'
-  expect_equal(capture.output(disp(A)), capture.output(print(A)))
-  expect_equal(capture.output(disp(S)), capture.output(print(S)))
+  expect_equal(capture.output(disp(A)), capture.output(cat(A, "\n")))
+  expect_equal(capture.output(disp(S)), capture.output(cat(S, "\n")))
 })
