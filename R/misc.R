@@ -11,7 +11,7 @@
   )
   packageStartupMessage(
     "This is ", paste(pkgname, version), "\n\n",
-    "Please notice that some of this package functions (listed above) have ",
+    "Please notice that some of this package functions (listed below) have ",
     "homonymous functions on other packages. Therefore, you should consider ",
     "making explicit calls to them in the form 'package::function()' to avoid ",
     "ambiguous calls."
