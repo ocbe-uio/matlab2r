@@ -116,6 +116,9 @@ matlab2r <- function(
   txt <- gsub("\\(:,\\s?([^)]+)\\)", "[, \\1]", txt)
   txt <- gsub("(.+)(\\[|\\():,end(\\]|\\()", "\\1[, ncol()]", txt)
 
+  # Empty vectors ------------------------------------------ #
+  txt <- gsub("= \\[\\]", paste(ass_op, "vector()"), txt)
+
   # Formatting --------------------------------------------- #
   if (improve_formatting) {
     txt <- gsub("(.),(\\S)", "\\1, \\2", txt)
