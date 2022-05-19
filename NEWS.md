@@ -4,6 +4,7 @@
 * Improved translation of several `matlab2r()` operators
 * Added `disp()`
 * Added `num2str()`
+* Added `char()`
 
 # matlab2r 1.1.1
 
