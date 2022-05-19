@@ -2,6 +2,7 @@
 
 export(blanks)
 export(cell)
+export(char)
 export(colon)
 export(disp)
 export(find)
