@@ -1,9 +1,10 @@
-# matlab2r 1.1.1.9009
+# matlab2r (development version)
 
-* Added ability to to slip lines on `matlab2r()`
+* Added ability to skip lines on `matlab2r()`
 * Improved translation of several `matlab2r()` operators
 * Added `disp()`
 * Added `num2str()`
+* Added `char()`
 
 # matlab2r 1.1.1
 
