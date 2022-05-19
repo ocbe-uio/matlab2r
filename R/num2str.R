@@ -15,27 +15,26 @@
 #' num2str(A)
 #' num2str(A, 3)
 #' num2str(pi * 10, "%e")
-#' @rdname num2str
 setGeneric(
   name = "num2str",
   def  = function(A, format) standardGeneric("num2str")
 )
 
-#' @rdname num2str
+#' @describeIn num2str Converting a vector to character
 setMethod(
   f          = "num2str",
   signature  = c("numeric", "missing"),
   definition = function(A) as.character(A)
 )
 
-#' @rdname num2str
+#' @describeIn num2str Converting an array to character
 setMethod(
   f          = "num2str",
   signature  = c("array", "missing"),
   definition = function(A) matrix(as.character(A), nrow(A))
 )
 
-#' @rdname num2str
+#' @describeIn num2str Rounding a vector, then converting to character
 setMethod(
   f          = "num2str",
   signature  = c("numeric", "numeric"),
@@ -45,7 +44,7 @@ setMethod(
   }
 )
 
-#' @rdname num2str
+#' @describeIn num2str Rounding an arrray, then converting to character
 setMethod(
   f          = "num2str",
   signature  = c("array", "numeric"),
@@ -54,16 +53,18 @@ setMethod(
   }
 )
 
-#' @rdname num2str
+#' @describeIn num2str Formatting a vector, then converting to character
 setMethod(
   f          = "num2str",
   signature  = c("numeric", "character"),
   definition = function(A, format) sprintf(format, A)
 )
 
-#' @rdname num2str
+#' @describeIn num2str Formatting an array, then converting to character
 setMethod(
   f          = "num2str",
   signature  = c("array", "character"),
-  definition = function(A, format) sprintf(format, A)
+  definition = function(A, format) {
+    matrix(as.character(sprintf(format, A)), nrow(A))
+  }
 )

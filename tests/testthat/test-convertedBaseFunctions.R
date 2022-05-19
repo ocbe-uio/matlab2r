@@ -293,4 +293,8 @@ test_that("num2str works", {
     expected = matrix(c("0.069", "0.73", "0.354", "0.726"), 2)
   )
   expect_equal(num2str(pi, "%.2f"), "3.14")
+  expect_equal(
+    object = num2str(A, "%g"),
+    expected = matrix(c("0.0689566", "0.730399", "0.35397", "0.725803"), 2)
+  )
 })

@@ -37,6 +37,21 @@ num2str(A, format)
 Converts a numeric value to character. This is essentially a
 wrapper over \code{\link[base:character]{base::as.character()}}.
 }
+\section{Methods (by class)}{
+\itemize{
+\item \code{A = numeric,format = missing}: Converting a vector to character
+
+\item \code{A = array,format = missing}: Converting an array to character
+
+\item \code{A = numeric,format = numeric}: Rounding a vector, then converting to character
+
+\item \code{A = array,format = numeric}: Rounding an arrray, then converting to character
+
+\item \code{A = numeric,format = character}: Formatting a vector, then converting to character
+
+\item \code{A = array,format = character}: Formatting an array, then converting to character
+}}
+
 \examples{
 X <- rnorm(10)
 num2str(X)
