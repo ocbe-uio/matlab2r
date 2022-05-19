@@ -259,3 +259,42 @@ test_that("disp works", {
   expect_equal(capture.output(disp(A)), capture.output(cat(A, "\n")))
   expect_equal(capture.output(disp(S)), capture.output(cat(S, "\n")))
 })
+
+test_that("num2str works", {
+  set.seed(595504)
+  A <- matrix(runif(4), 2)
+  expect_equal(
+    object = num2str(seq(0.5, 1, 0.1)),
+    expected = c("0.5", "0.6", "0.7", "0.8", "0.9", "1")
+  )
+  expect_equal(
+    object = num2str(seq(0.5, 0.8, 0.01), 1),
+    expected = c(rep("0.5", 5), rep("0.6", 10), rep("0.7", 10), rep("0.8", 6))
+  )
+  expect_equal(
+    object = num2str(seq(0.5, 0.8, 0.01), 0),
+    expected = c(rep("0.5", 5), rep("0.6", 10), rep("0.7", 10), rep("0.8", 6))
+  )
+  expect_equal(
+    object = num2str(seq(0.5, 0.8, 0.01), -1),
+    expected = c(rep("0.5", 5), rep("0.6", 10), rep("0.7", 10), rep("0.8", 6))
+  )
+  expect_equal(
+    object = num2str(A),
+    expected = matrix(
+      c(
+        "0.0689565911889076", "0.730398518266156",
+        "0.353969793766737", "0.725802779430524"
+      ),
+    2)
+  )
+  expect_equal(
+    object = num2str(A, 3),
+    expected = matrix(c("0.069", "0.73", "0.354", "0.726"), 2)
+  )
+  expect_equal(num2str(pi, "%.2f"), "3.14")
+  expect_equal(
+    object = num2str(A, "%g"),
+    expected = matrix(c("0.0689566", "0.730399", "0.35397", "0.725803"), 2)
+  )
+})
