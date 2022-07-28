@@ -5,7 +5,7 @@ test_that("rand works properly", {
 })
 
 test_that("repmat works properly", {
-  mx0 <- c(1:4) # when converted to matrix, results in a column vector
+  mx0 <- 1:4 # when converted to matrix, results in a column vector
   mx1 <- matrix(5:8)
   mx2 <- matrix(0:-3, 2)
   expect_error(repmat(mx0))
