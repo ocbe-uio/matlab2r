@@ -30,7 +30,9 @@ times <- function(a, b) {
       dominated_mx <- a
     } else {
       dominant_mx <- "neither"
-      dominant_dim <- c(base::max(nrow(b), nrow(a)), base::max(ncol(b), ncol(a)))
+      dominant_dim <- c(
+        base::max(nrow(b), nrow(a)), base::max(ncol(b), ncol(a))
+      )
     }
   }
 

@@ -1,10 +1,12 @@
 #' @title Convert Matlab function to R
-#' @description Performs basic syntax conversion from a Matlab function file to R
+#' @description Performs basic syntax conversion from a Matlab function file to
+#' R
 #' @param filename name of the file
 #' @param output can be "asis", "clean", "save" or "diff"
 #' @param improve_formatting if `TRUE` (default), makes minor changes
 #' to conform to best-practice formatting conventions
-#' @param change_assignment if `TRUE` (default), uses `<-` as the assignment operator
+#' @param change_assignment if `TRUE` (default), uses `<-` as the assignment
+#' operator
 #' @param append if `FALSE` (default), overwrites file; otherwise, append
 #' output to input
 #' @param restyle if `TRUE`, will restyle the output with styler

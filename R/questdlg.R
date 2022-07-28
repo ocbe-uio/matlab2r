@@ -6,7 +6,8 @@
 #' @param accepted_ans Vector containing accepted answers
 #' @description This function aims to loosely mimic the behavior of the
 #' questdlg function on Matlab
-#' @return Whatever is entered by the user after the prompt created by the function.
+#' @return Whatever is entered by the user after the prompt created by the
+#' function.
 #' @export
 #' @examples
 #' \dontrun{

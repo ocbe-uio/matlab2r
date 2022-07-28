@@ -1,5 +1,6 @@
 #' @title Minimum (MATLAB version)
-#' @description Finds the minimum value for each column of a matrix, potentially returning the indices instead
+#' @description Finds the minimum value for each column of a matrix, potentially
+#' returning the indices instead
 #' @param X matrix
 #' @param indices return indices?
 #' @importFrom methods is
@@ -26,7 +27,8 @@ min <- function(X, indices = TRUE) {
 }
 
 #' @title Maximum (MATLAB version)
-#' @description Finds the minimum value for each column of a matrix, potentially returning the indices instead
+#' @description Finds the minimum value for each column of a matrix, potentially
+#' returning the indices instead
 #' @param X matrix
 #' @param indices return indices?
 #' @author Waldir Leoncio
