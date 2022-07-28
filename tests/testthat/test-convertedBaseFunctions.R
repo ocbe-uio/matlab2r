@@ -298,3 +298,17 @@ test_that("num2str works", {
     expected = matrix(c("0.0689566", "0.730399", "0.35397", "0.725803"), 2)
   )
 })
+
+test_that("sum works", {
+  x1 <- array(1:9, c(3, 3))
+  x2 <- array(1:9, c(1, 9))
+  x3 <- array(1:9, c(9, 1))
+  expect_equal(sum_MATLAB(x1), c(6, 15, 24))
+  expect_equal(sum_MATLAB(x2), 45)
+  expect_equal(sum_MATLAB(x3), 45)
+  expect_equal(sum_MATLAB(x1, "all"), 45)
+  expect_equal(sum_MATLAB(x1, 1), c(6, 15, 24))
+  expect_equal(sum_MATLAB(x1, 2), c(12, 15, 18))
+  expect_equal(sum_MATLAB(x1, 3), x1)
+  expect_equal(sum_MATLAB(x1, 4), x1)
+})
