@@ -25,11 +25,11 @@ piece of text as a row of characters in a character vector.
 }
 \section{Methods (by class)}{
 \itemize{
-\item \code{character}: Converting a character vector
+\item \code{char(character)}: Converting a character vector
 
-\item \code{array}: Converting a character array
+\item \code{char(array)}: Converting a character array
+
 }}
-
 \examples{
 char("Hi!")
 char(matrix(letters, 2))

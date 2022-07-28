@@ -15,7 +15,7 @@ Description: Allows users familiar with MATLAB to use MATLAB-named functions in
 License: GPL (>= 3)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.1
 Suggests:
     testthat (>= 3.0.0)
 Config/testthat/edition: 3

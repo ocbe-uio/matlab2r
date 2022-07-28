@@ -5,6 +5,7 @@
 * Added `disp()`
 * Added `num2str()`
 * Added `char()`
+* Added `sum_MATLAB()`
 
 # matlab2r 1.1.1
 

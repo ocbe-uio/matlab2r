@@ -6,13 +6,17 @@
 #' @author Waldir Leoncio
 #' @export
 #' @examples
+#' x1 <- array(1:9, c(3, 3))
+#' sum_MATLAB(x1)
+#' sum_MATLAB(x1, "all")
+#' sum_MATLAB(x1, 2)
 setGeneric(
   name = "sum_MATLAB",
   def  = function(A, dim) standardGeneric("sum_MATLAB")
 )
 
-#' @describeIn sum Sum elements of A along the first array dimension whose size
-#' does not equal 1
+#' @describeIn sum_MATLAB Sum elements of A along the first array dimension
+#' whose size does not equal 1
 setMethod(
   f = "sum_MATLAB",
   signature = c("array", "missing"),
@@ -23,7 +27,7 @@ setMethod(
   }
 )
 
-#' @describeIn sum Computes the sum of all elements of A
+#' @describeIn sum_MATLAB Computes the sum of all elements of A
 setMethod(
   f = "sum_MATLAB",
   signature = c("array", "character"),
@@ -33,7 +37,7 @@ setMethod(
   }
 )
 
-#' @describeIn sum Computes the sum of all elements of A
+#' @describeIn sum_MATLAB Computes the sum of all elements of A
 setMethod(
   f = "sum_MATLAB",
   signature = c("array", "numeric"),
