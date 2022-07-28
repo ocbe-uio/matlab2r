@@ -1,5 +1,6 @@
 #' @title Gather user input
-#' @description Replicates the functionality of the homonymous function in Matlab (sans dialog box)
+#' @description Replicates the functionality of the homonymous function in
+#' Matlab (sans dialog box)
 #' @param prompt Text field with user instructions
 #' @param dims number of dimensions in the answwers
 #' @param definput default value of the input

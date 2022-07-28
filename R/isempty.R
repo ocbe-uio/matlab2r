@@ -1,5 +1,6 @@
 #' @title Is Array Empty?
-#' @description Determine whether array is empty. An empty array, table, or timetable has at least one dimension with length 0, such as 0-by-0 or 0-by-5.
+#' @description Determine whether array is empty. An empty array, table, or
+#' timetable has at least one dimension with length 0, such as 0-by-0 or 0-by-5.
 #' @details Emulates the behavior of the `isempty` function on Matlab
 #' @param x array
 #' @return A logical value determining if x is empty
