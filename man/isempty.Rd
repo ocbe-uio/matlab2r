@@ -13,7 +13,8 @@ isempty(x)
 A logical value determining if x is empty
 }
 \description{
-Determine whether array is empty. An empty array, table, or timetable has at least one dimension with length 0, such as 0-by-0 or 0-by-5.
+Determine whether array is empty. An empty array, table, or
+timetable has at least one dimension with length 0, such as 0-by-0 or 0-by-5.
 }
 \details{
 Emulates the behavior of the \code{isempty} function on Matlab

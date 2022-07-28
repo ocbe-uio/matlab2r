@@ -12,7 +12,8 @@ isfield(x, field)
 \item{field}{name of field}
 }
 \value{
-A logical vector determining if \code{field} is within \code{names(x)}
+A logical vector determining if \code{field} is within
+\code{names(x)}
 }
 \description{
 This function tries to replicate the behavior of the \code{isfield}
