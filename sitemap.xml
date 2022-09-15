@@ -13,13 +13,25 @@
     <loc>/index.html</loc>
   </url>
   <url>
+    <loc>/news/index.html</loc>
+  </url>
+  <url>
     <loc>/reference/blanks.html</loc>
   </url>
   <url>
     <loc>/reference/cell.html</loc>
   </url>
   <url>
+    <loc>/reference/char.html</loc>
+  </url>
+  <url>
     <loc>/reference/colon.html</loc>
+  </url>
+  <url>
+    <loc>/reference/disp.html</loc>
+  </url>
+  <url>
+    <loc>/reference/dot-onAttach.html</loc>
   </url>
   <url>
     <loc>/reference/find.html</loc>
@@ -58,6 +70,9 @@
     <loc>/reference/nargin.html</loc>
   </url>
   <url>
+    <loc>/reference/num2str.html</loc>
+  </url>
+  <url>
     <loc>/reference/ones.html</loc>
   </url>
   <url>
@@ -86,6 +101,9 @@
   </url>
   <url>
     <loc>/reference/strcmp.html</loc>
+  </url>
+  <url>
+    <loc>/reference/sum_MATLAB.html</loc>
   </url>
   <url>
     <loc>/reference/times.html</loc>
