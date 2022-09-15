@@ -4,7 +4,8 @@
 #' @param x list
 #' @param field name of field
 #' @references https://se.mathworks.com/help/matlab/ref/isfield.html
-#' @return A logical vector determining if \code{field} is within \code{names(x)}
+#' @return A logical vector determining if \code{field} is within
+#' \code{names(x)}
 #' @export
 #' @examples
 #' S <- list(

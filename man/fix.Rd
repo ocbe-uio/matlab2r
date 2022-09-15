@@ -13,7 +13,8 @@ fix(X)
 The values of \code{trunc(X)}.
 }
 \description{
-Rounds each element of input to the nearest integer towards zero. Basically the same as trunc()
+Rounds each element of input to the nearest integer towards
+zero. Basically the same as trunc()
 }
 \examples{
 X <- matrix(c(-1.9, -3.4, 1.6, 2.5, -4.5, 4.5), 3, byrow = TRUE)

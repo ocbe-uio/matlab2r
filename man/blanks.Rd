@@ -16,7 +16,8 @@ Vector of n blanks
 Create character vector of blanks
 }
 \details{
-This function emulates the behavior of a homonimous function from Matlab
+This function emulates the behavior of a homonimous function from
+Matlab
 }
 \examples{
 blanks(1)

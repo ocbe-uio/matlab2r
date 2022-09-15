@@ -17,7 +17,8 @@ inputdlg(prompt, dims = 1, definput = NULL)
 A user prompt
 }
 \description{
-Replicates the functionality of the homonymous function in Matlab (sans dialog box)
+Replicates the functionality of the homonymous function in
+Matlab (sans dialog box)
 }
 \examples{
 \dontrun{

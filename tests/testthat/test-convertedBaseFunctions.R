@@ -5,7 +5,7 @@ test_that("rand works properly", {
 })
 
 test_that("repmat works properly", {
-  mx0 <- c(1:4) # when converted to matrix, results in a column vector
+  mx0 <- 1:4 # when converted to matrix, results in a column vector
   mx1 <- matrix(5:8)
   mx2 <- matrix(0:-3, 2)
   expect_error(repmat(mx0))
@@ -251,4 +251,64 @@ test_that("gammaln works as expected", {
     tolerance = 1e-4
   )
   expect_equal(gammaln(-4:1), c(rep(Inf, 5), 0))
+})
+
+test_that("disp works", {
+  A <- c(15, 150)
+  S <- "Hello World."
+  expect_equal(capture.output(disp(A)), capture.output(cat(A, "\n")))
+  expect_equal(capture.output(disp(S)), capture.output(cat(S, "\n")))
+})
+
+test_that("num2str works", {
+  set.seed(595504)
+  A <- matrix(runif(4), 2)
+  expect_equal(
+    object = num2str(seq(0.5, 1, 0.1)),
+    expected = c("0.5", "0.6", "0.7", "0.8", "0.9", "1")
+  )
+  expect_equal(
+    object = num2str(seq(0.5, 0.8, 0.01), 1),
+    expected = c(rep("0.5", 5), rep("0.6", 10), rep("0.7", 10), rep("0.8", 6))
+  )
+  expect_equal(
+    object = num2str(seq(0.5, 0.8, 0.01), 0),
+    expected = c(rep("0.5", 5), rep("0.6", 10), rep("0.7", 10), rep("0.8", 6))
+  )
+  expect_equal(
+    object = num2str(seq(0.5, 0.8, 0.01), -1),
+    expected = c(rep("0.5", 5), rep("0.6", 10), rep("0.7", 10), rep("0.8", 6))
+  )
+  expect_equal(
+    object = num2str(A),
+    expected = matrix(
+      c(
+        "0.0689565911889076", "0.730398518266156",
+        "0.353969793766737", "0.725802779430524"
+      ),
+    2)
+  )
+  expect_equal(
+    object = num2str(A, 3),
+    expected = matrix(c("0.069", "0.73", "0.354", "0.726"), 2)
+  )
+  expect_equal(num2str(pi, "%.2f"), "3.14")
+  expect_equal(
+    object = num2str(A, "%g"),
+    expected = matrix(c("0.0689566", "0.730399", "0.35397", "0.725803"), 2)
+  )
+})
+
+test_that("sum works", {
+  x1 <- array(1:9, c(3, 3))
+  x2 <- array(1:9, c(1, 9))
+  x3 <- array(1:9, c(9, 1))
+  expect_equal(sum_MATLAB(x1), c(6, 15, 24))
+  expect_equal(sum_MATLAB(x2), 45)
+  expect_equal(sum_MATLAB(x3), 45)
+  expect_equal(sum_MATLAB(x1, "all"), 45)
+  expect_equal(sum_MATLAB(x1, 1), c(6, 15, 24))
+  expect_equal(sum_MATLAB(x1, 2), c(12, 15, 18))
+  expect_equal(sum_MATLAB(x1, 3), x1)
+  expect_equal(sum_MATLAB(x1, 4), x1)
 })

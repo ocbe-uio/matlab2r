@@ -1,14 +1,18 @@
 #' @title Convert Matlab function to R
-#' @description Performs basic syntax conversion from a Matlab function file to R
+#' @description Performs basic syntax conversion from a Matlab function file to
+#' R
 #' @param filename name of the file
 #' @param output can be "asis", "clean", "save" or "diff"
 #' @param improve_formatting if `TRUE` (default), makes minor changes
 #' to conform to best-practice formatting conventions
-#' @param change_assignment if `TRUE` (default), uses `<-` as the assignment operator
+#' @param change_assignment if `TRUE` (default), uses `<-` as the assignment
+#' operator
 #' @param append if `FALSE` (default), overwrites file; otherwise, append
 #' output to input
 #' @param restyle if `TRUE`, will restyle the output with styler
 #' (only for \code{output = "save"})
+#' @param skip_lines vector of lines to be skipped. These will be commented out
+#' and tagged as TODO, instead.
 #' @author Waldir Leoncio
 #' @importFrom utils write.table
 #' @importFrom styler style_file
@@ -28,7 +32,8 @@
 #' matlab2r(matlab_script, output = "clean")
 matlab2r <- function(
   filename, output = "diff", improve_formatting = TRUE,
-  change_assignment = TRUE, append = FALSE, restyle = !improve_formatting
+  change_assignment = TRUE, append = FALSE, restyle = !improve_formatting,
+  skip_lines = NULL
 ) {
   # (say, by rule and/or section)
   # ======================================================== #
@@ -48,6 +53,11 @@ matlab2r <- function(
 
   # Uncommenting ------------------------------------------- #
   txt <- gsub("^#\\s?(.+)", "\\1", txt)
+
+  # Commenting out skipped lines ---------------------------- #
+  if (!is.null(skip_lines)) {
+    txt[skip_lines] <- gsub("(.+)", "# TODO: \\1", txt[skip_lines])
+  }
 
   # Output variable ------------------------------------ ---- #
   out <- gsub(
@@ -101,34 +111,43 @@ matlab2r <- function(
   # Subsets ------------------------------------------------ #
   ass_op <- ifelse(change_assignment, "<-", "=")
   txt <- gsub(
-    pattern = "([^\\(]+)\\(([^\\(]+)\\)=(.+)",
+    pattern = "([^(]+)\\(([^\\(]+)\\)[^=]=(.+)",
     replacement = paste0("\\1[\\2] ", ass_op, "\\3"),
     x = txt
   )
-  txt <- gsub("\\(:\\)", "[, ]", txt)
+  txt <- gsub("\\(:,\\s?([^)]+)\\)", "[, \\1]", txt)
   txt <- gsub("(.+)(\\[|\\():,end(\\]|\\()", "\\1[, ncol()]", txt)
+
+  # Empty vectors ------------------------------------------ #
+  txt <- gsub("= \\[\\]", paste(ass_op, "vector()"), txt)
 
   # Formatting --------------------------------------------- #
   if (improve_formatting) {
     txt <- gsub("(.),(\\S)", "\\1, \\2", txt)
     # Math operators
-    txt <- gsub("(\\S)\\+(\\S)", "\\1 + \\2", txt)
-    txt <- gsub("(\\S)\\-(\\S)", "\\1 - \\2", txt)
-    txt <- gsub("(\\S)\\*(\\S)", "\\1 * \\2", txt)
-    txt <- gsub("(\\S)\\/(\\S)", "\\1 / \\2", txt)
+    txt <- gsub("(\\S)\\s?\\+\\s?(\\S)", "\\1 + \\2", txt)
+    txt <- gsub("([^e\\s])\\s?\\-\\s?(\\S)", "\\1 - \\2", txt)
+    txt <- gsub("(\\S)\\s?\\*\\s?(\\S)", "\\1 * \\2", txt)
+    txt <- gsub("(\\S)\\\\s?/\\s?(\\S)", "\\1 / \\2", txt)
     # Logic operators
     txt <- gsub("~", "!", txt)
-    txt <- gsub("(\\S)>=(\\S)", "\\1 >= \\2", txt)
-    txt <- gsub("(\\S)<=(\\S)", "\\1 <= \\2", txt)
-    txt <- gsub("(\\S)==(\\S)", "\\1 == \\2", txt)
+    txt <- gsub("(\\S)\\s?>=\\s?(\\S)", "\\1 >= \\2", txt)
+    txt <- gsub("(\\S)\\s?<=\\s?(\\S)", "\\1 <= \\2", txt)
+    txt <- gsub("(\\S)\\s?>\\s?(\\S)", "\\1 > \\2", txt)
+    txt <- gsub("(\\S)\\s?<\\s?(\\S)", "\\1 < \\2", txt)
+    txt <- gsub("(\\S)\\s?==\\s?(\\S)", "\\1 == \\2", txt)
     # Assignment
     txt <- gsub(
-      pattern = "(\\w)(\\s?)=(\\s?)(\\w)",
-      replacement = paste0("\\1 ", ass_op, " \\4"),
+      pattern = "(\\w)\\s=\\s(\\w)",
+      replacement = paste("\\1", ass_op, "\\2"),
       x = txt
     )
-    txt <- gsub("%(\\s?)(\\w)", "# \\2", txt)
+    txt <- gsub(" < - ", " <- ", txt) # undoes improper formatting of ass_op
   }
+
+  # Comments ----------------------------------------------- #
+  txt <- gsub("[^']%(\\s?)(\\w)", "# \\2", txt) # excludes fprintf('%s')
+  txt <- gsub("^\\s*%(.+)", "# \\1", txt)  # commented-out code
 
   # Adding output and end-of-file brace -------------------- #
   txt <- append(txt, paste0("\treturn(", out, ")\n}"))

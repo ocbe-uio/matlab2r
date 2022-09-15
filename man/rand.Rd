@@ -12,7 +12,8 @@ rand(r = 1, c = 1)
 \item{c}{number of columns of output matrix}
 }
 \value{
-\eqn{r \times c} matrix with random trials from a standard uniform distribution.
+\eqn{r \times c} matrix with random trials from a standard
+uniform distribution.
 }
 \description{
 Imitates the behavior of \code{rand()} on Matlab

@@ -1,6 +1,7 @@
 #' @title Blanks
 #' @description Create character vector of blanks
-#' @details This function emulates the behavior of a homonimous function from Matlab
+#' @details This function emulates the behavior of a homonimous function from
+#' Matlab
 #' @param n length of vector
 #' @author Waldir Leoncio
 #' @return Vector of n blanks
