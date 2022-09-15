@@ -1,3 +1,7 @@
+# matlab2r (development version)
+
+* Added URLs for home page and bug reports to DESCRIPTION
+
 # matlab2r 1.2.0
 
 * Added ability to skip lines on `matlab2r()`
