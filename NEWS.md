@@ -1,4 +1,4 @@
-# matlab2r (development version)
+# matlab2r 1.2.0
 
 * Added ability to skip lines on `matlab2r()`
 * Improved translation of several `matlab2r()` operators

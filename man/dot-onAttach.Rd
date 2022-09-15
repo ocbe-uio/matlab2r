@@ -12,5 +12,6 @@
 \item{pkgname}{package name. See \code{?base::.onAttach} for details}
 }
 \description{
-Prints package version number and welcome message on package load
+Prints package version number and welcome message on package
+load
 }

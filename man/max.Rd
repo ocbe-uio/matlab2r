@@ -15,7 +15,8 @@ max(X, indices = TRUE)
 Either a list or a vector
 }
 \description{
-Finds the minimum value for each column of a matrix, potentially returning the indices instead
+Finds the minimum value for each column of a matrix, potentially
+returning the indices instead
 }
 \examples{
 A <- matrix(c(23, 42, 37, 15, 52))
