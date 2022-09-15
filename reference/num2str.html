@@ -12,7 +12,7 @@ wrapper over base::as.character()."><!-- mathjax --><script src="https://cdnjs.c
     
     <a class="navbar-brand me-2" href="../index.html">matlab2r</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.2.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.2.0.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,7 +29,13 @@ wrapper over base::as.character()."><!-- mathjax --><script src="https://cdnjs.c
       </ul><form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off"></form>
 
-      <ul class="navbar-nav"></ul></div>
+      <ul class="navbar-nav"><li class="nav-item">
+  <a class="external-link nav-link" href="https://github.com/ocbe-uio/matlab2r/" aria-label="github">
+    <span class="fab fa fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
+      </ul></div>
 
     
   </div>
@@ -37,7 +43,7 @@ wrapper over base::as.character()."><!-- mathjax --><script src="https://cdnjs.c
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="" class="logo" alt=""><h1>Numeric to string</h1>
-      
+      <small class="dont-index">Source: <a href="https://github.com/ocbe-uio/matlab2r/blob/HEAD/R/num2str.R" class="external-link"><code>R/num2str.R</code></a></small>
       <div class="d-none name"><code>num2str.Rd</code></div>
     </div>
 
@@ -107,22 +113,22 @@ wrapper over <code><a href="https://rdrr.io/r/base/character.html" class="extern
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">X</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">num2str</span><span class="op">(</span><span class="va">X</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "-0.987797690599848"  "-1.52586910820435"   "-1.06175359725096"  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [4] "-1.15593138044184"   "1.17080802262191"    "-2.33047550649297"  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] "-0.169634528569538"  "-1.18479349876173"   "0.777207961591426"  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "0.00713742932130992"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "-0.454086692730616" "0.287789749476779"  "-0.255033364481797"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [4] "-1.91019863702892"  "-1.39929352422632"  "1.40662166284519"  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] "-1.28972865743073"  "-1.14525108139846"  "-0.963540000053954"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "-1.25332398904575" </span>
 <span class="r-in"><span><span class="fu">num2str</span><span class="op">(</span><span class="va">X</span>, <span class="fl">2</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "-0.99" "-1.53" "-1.06" "-1.16" "1.17"  "-2.33" "-0.17" "-1.18" "0.78" </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "0.01" </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "-0.45" "0.29"  "-0.26" "-1.91" "-1.4"  "1.41"  "-1.29" "-1.15" "-0.96"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "-1.25"</span>
 <span class="r-in"><span><span class="va">A</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html" class="external-link">runif</a></span><span class="op">(</span><span class="fl">4</span><span class="op">)</span>, <span class="fl">2</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">num2str</span><span class="op">(</span><span class="va">A</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      [,1]                 [,2]                </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] "0.205283369403332"  "0.0188951657619327"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] "0.0112821564543992" "0.419299471192062" </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      [,1]                [,2]               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] "0.136447639670223" "0.401123127900064"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] "0.609642227180302" "0.590557245071977"</span>
 <span class="r-in"><span><span class="fu">num2str</span><span class="op">(</span><span class="va">A</span>, <span class="fl">3</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      [,1]    [,2]   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] "0.205" "0.019"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] "0.011" "0.419"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] "0.136" "0.401"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] "0.61"  "0.591"</span>
 <span class="r-in"><span><span class="fu">num2str</span><span class="op">(</span><span class="va">pi</span> <span class="op">*</span> <span class="fl">10</span>, <span class="st">"%e"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "3.141593e+01"</span>
 </code></pre></div>
