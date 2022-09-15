@@ -59,7 +59,17 @@ matlab2r <- function(
     txt[skip_lines] <- gsub("(.+)", "# TODO: \\1", txt[skip_lines])
   }
 
-  # Output variable ------------------------------------ ---- #
+  # Output variable ----------------------------------------- #
+  line1_ending <- substring(
+    text  = txt[1],
+    first = nchar(txt[1]) - 2,
+    last  = nchar(txt[1])
+  )
+  if (line1_ending == "...") {
+    txt[1] <- paste(txt[1], txt[2], collapse = "")
+    txt[2] <- ""
+  }
+  txt[1] <- gsub("\\s*\\.{3}\\s*", " ", txt[1])
   out <- gsub(
     pattern     = "\\t*function ((\\S|\\,\\s)+)\\s?=\\s?(\\w+)\\((.+)\\)",
     replacement = "\\1",
@@ -75,6 +85,7 @@ matlab2r <- function(
     )
     out <- paste0("list(", paste(out, collapse = ", "), ")")
   }
+  out <- gsub(";", "", out)
 
   # Function header ---------------------------------------- #
   txt <- gsub(
