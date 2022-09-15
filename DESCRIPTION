@@ -1,6 +1,6 @@
 Package: matlab2r
 Title: Translation Layer from MATLAB to R
-Version: 1.2.0
+Version: 1.2.0.9000
 Authors@R:
     person(
         given  = "Waldir",
@@ -20,6 +20,6 @@ Suggests:
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
 Imports: methods, styler
-Date: 2022-08-17
+Date: 2022-09-15
 URL: https://ocbe-uio.github.io/matlab2r/
 BugReports: https://github.com/ocbe-uio/matlab2r/issues
