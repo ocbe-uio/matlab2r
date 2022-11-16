@@ -1,6 +1,6 @@
 Package: matlab2r
 Title: Translation Layer from MATLAB to R
-Version: 1.2.0.9001
+Version: 1.2.0.9002
 Authors@R:
     person(
         given  = "Waldir",
