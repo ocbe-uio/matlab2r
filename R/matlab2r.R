@@ -115,6 +115,7 @@ matlab2r <- function(
   txt <- gsub("gamma_ln", "log_gamma", txt)
   txt <- gsub("nchoosek", "choose", txt)
   txt <- gsub("isempty", "is.null", txt)
+  txt <- gsub("randperm", "sample", txt)
 
   # Commenting out global variables ------------------------ #
   txt <- gsub("global", "# global", txt)
