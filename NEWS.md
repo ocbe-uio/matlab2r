@@ -1,4 +1,4 @@
-# matlab2r (development version)
+# matlab2r 1.3.0
 
 * Added URLs for home page and bug reports to DESCRIPTION
 * Fixed handling of multi-line function headers (issue #14)
