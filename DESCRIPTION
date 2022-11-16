@@ -20,6 +20,6 @@ Suggests:
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
 Imports: methods, styler
-Date: 2022-09-15
+Date: 2022-11-16
 URL: https://ocbe-uio.github.io/matlab2r/
 BugReports: https://github.com/ocbe-uio/matlab2r/issues
