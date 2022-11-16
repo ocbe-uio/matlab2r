@@ -2,6 +2,7 @@
 
 * Added URLs for home page and bug reports to DESCRIPTION
 * Fixed handling of multi-line function headers (issue #14)
+* Added `assert()`
 
 # matlab2r 1.2.0
 
