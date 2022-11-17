@@ -1,3 +1,10 @@
+# matlab2r 1.3.0
+
+* Added URLs for home page and bug reports to DESCRIPTION
+* Fixed handling of multi-line function headers (issue #14)
+* Added `assert()`
+* Added `linspace()`
+
 # matlab2r 1.2.0
 
 * Added ability to skip lines on `matlab2r()`
