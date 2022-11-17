@@ -16,6 +16,9 @@
     <loc>/news/index.html</loc>
   </url>
   <url>
+    <loc>/reference/assert.html</loc>
+  </url>
+  <url>
     <loc>/reference/blanks.html</loc>
   </url>
   <url>
@@ -56,6 +59,9 @@
   </url>
   <url>
     <loc>/reference/isspace.html</loc>
+  </url>
+  <url>
+    <loc>/reference/linspace.html</loc>
   </url>
   <url>
     <loc>/reference/matlab2r.html</loc>
