@@ -1,3 +1,7 @@
+# matlab2r (development version)
+
+* Added parsing of `logical()` and `string()`
+
 # matlab2r 1.3.0
 
 * Added URLs for home page and bug reports to DESCRIPTION
