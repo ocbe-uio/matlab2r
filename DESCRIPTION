@@ -1,6 +1,6 @@
 Package: matlab2r
 Title: Translation Layer from MATLAB to R
-Version: 1.3.0.9003
+Version: 1.3.0.9004
 Authors@R:
     person(
         given  = "Waldir",
@@ -15,7 +15,7 @@ Description: Allows users familiar with MATLAB to use MATLAB-named functions in
 License: GPL (>= 3)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.3
 Suggests:
     testthat (>= 3.0.0)
 Config/testthat/edition: 3

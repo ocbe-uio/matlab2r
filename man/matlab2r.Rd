@@ -5,7 +5,7 @@
 \title{Convert Matlab function to R}
 \usage{
 matlab2r(
-  filename,
+  input,
   output = "diff",
   improve_formatting = TRUE,
   change_assignment = TRUE,
@@ -15,7 +15,7 @@ matlab2r(
 )
 }
 \arguments{
-\item{filename}{name of the file}
+\item{input}{file path or character string containing MATLAB code}
 
 \item{output}{can be "asis", "clean", "save" or "diff"}
 
