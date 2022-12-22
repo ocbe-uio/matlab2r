@@ -1,4 +1,4 @@
-# matlab2r (development version)
+# matlab2r 1.4.0
 
 * Added parsing of `logical()` and `string()`
 * Reformatting of `matlab2r()` listed output
