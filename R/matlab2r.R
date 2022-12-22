@@ -80,7 +80,7 @@ matlab2r <- function(
     out <- out[which(out != "")]
     out <- vapply(
       X   = seq_along(out),
-      FUN = function(x) paste(as.string(out[x]), "=", out[x]),
+      FUN = function(x) paste0('"', out[x], '" = ', out[x]),
       FUN.VALUE = vector("character", 1)
     )
     out <- paste0("list(", paste(out, collapse = ", "), ")")
@@ -117,7 +117,7 @@ matlab2r <- function(
   txt <- gsub("isempty", "is.null", txt)
   txt <- gsub("randperm", "sample", txt)
   txt <- gsub("logical", "as.logical", txt)
-  txt <- gsub("string", "as.string", txt)
+  txt <- gsub("string", "as.character", txt)
 
   # Commenting out global variables ------------------------ #
   txt <- gsub("global", "# global", txt)
