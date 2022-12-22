@@ -183,6 +183,10 @@ matlab2r <- function(
   } else if (output == "clean") {
     return(cat(txt, sep = "\n"))
   } else if (output == "save") {
+    if (!isFilePath(input)) {
+      input <- tempfile()
+      message("Saving to ", input)
+    }
     write.table(
       x         = txt,
       file      = input,
