@@ -117,7 +117,7 @@ matlab2r <- function(
   txt <- gsub("isempty", "is.null", txt)
   txt <- gsub("randperm", "sample", txt)
   txt <- gsub("logical", "as.logical", txt)
-  txt <- gsub("string", "as.string", txt)
+  txt <- gsub("string", "as.character", txt)
 
   # Commenting out global variables ------------------------ #
   txt <- gsub("global", "# global", txt)
