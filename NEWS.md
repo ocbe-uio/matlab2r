@@ -1,6 +1,7 @@
 # matlab2r (development version)
 
 * Added parsing of `logical()` and `string()`
+* Reformatting of `matlab2r()` listed output
 
 # matlab2r 1.3.0
 
