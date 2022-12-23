@@ -312,3 +312,14 @@ test_that("sum works", {
   expect_equal(sum_MATLAB(x1, 3), x1)
   expect_equal(sum_MATLAB(x1, 4), x1)
 })
+
+test_that("log2 works", {
+  expect_equal(
+    log2(exp(1)),
+    list("mantissa" = .67959, "exponent" = 2)
+  )
+  expect_equal(
+    log2(c(10, 100, 0, pi)),
+    list("mantissa" = c(.62500, .78125, 0, .78542), "exponent" = c(4, 7, 0, 2))
+  )
+})
