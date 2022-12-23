@@ -1,7 +1,7 @@
 #' @title Convert Matlab function to R
 #' @description Performs basic syntax conversion from a Matlab function file to
 #' R
-#' @param filename name of the file
+#' @param input file path or character string containing MATLAB code
 #' @param output can be "asis", "clean", "save" or "diff"
 #' @param improve_formatting if `TRUE` (default), makes minor changes
 #' to conform to best-practice formatting conventions
@@ -31,20 +31,26 @@
 #' matlab2r(matlab_script)
 #' matlab2r(matlab_script, output = "clean")
 matlab2r <- function(
-  filename, output = "diff", improve_formatting = TRUE,
+  input, output = "diff", improve_formatting = TRUE,
   change_assignment = TRUE, append = FALSE, restyle = !improve_formatting,
   skip_lines = NULL
 ) {
-  # (say, by rule and/or section)
   # ======================================================== #
   # Verification                                             #
   # ======================================================== #
-  if (!file.exists(filename)) stop("File not found")
+  txt <- input
+  if (isFilePath(input)) {
+    if (!file.exists(input)) {
+      stop("File not found")
+    }
+    txt <- readLines(input)
+  } else if (length(input) == 1L) {
+    txt <- strsplit(input, split = "\n")[[1L]]
+  }
 
   # ======================================================== #
   # Reading file into R                                      #
   # ======================================================== #
-  txt <- readLines(filename)
   original <- txt
 
   # ======================================================== #
@@ -80,7 +86,7 @@ matlab2r <- function(
     out <- out[which(out != "")]
     out <- vapply(
       X   = seq_along(out),
-      FUN = function(x) paste(out[x], "=", out[x]),
+      FUN = function(x) paste0('"', out[x], '" = ', out[x]),
       FUN.VALUE = vector("character", 1)
     )
     out <- paste0("list(", paste(out, collapse = ", "), ")")
@@ -116,6 +122,8 @@ matlab2r <- function(
   txt <- gsub("nchoosek", "choose", txt)
   txt <- gsub("isempty", "is.null", txt)
   txt <- gsub("randperm", "sample", txt)
+  txt <- gsub("logical", "as.logical", txt)
+  txt <- gsub("string", "as.character", txt)
 
   # Commenting out global variables ------------------------ #
   txt <- gsub("global", "# global", txt)
@@ -175,9 +183,13 @@ matlab2r <- function(
   } else if (output == "clean") {
     return(cat(txt, sep = "\n"))
   } else if (output == "save") {
+    if (!isFilePath(input)) {
+      input <- tempfile()
+      message("Saving to ", input)
+    }
     write.table(
       x         = txt,
-      file      = filename,
+      file      = input,
       quote     = FALSE,
       row.names = FALSE,
       col.names = FALSE,
@@ -185,7 +197,7 @@ matlab2r <- function(
     )
     if (restyle) {
       readline("Fix any syntax errors and press enter to restyle file")
-      style_file(filename)
+      style_file(input)
     }
   } else if (output == "diff") {
     diff_text <- vector(mode = "character", length = (2 * length(original) + 1))
