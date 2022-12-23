@@ -1,3 +1,5 @@
+* Added `log2()`
+
 # matlab2r (development version)
 
 * Added parsing of `logical()` and `string()`
