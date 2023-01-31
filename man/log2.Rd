@@ -18,3 +18,8 @@ mantissa * 2 ^ exponent equals X
 \description{
 Base 2 logarithm and floating-point number dissection
 }
+\examples{
+log2(10, dissect = FALSE)
+log2(10)
+.625 * 2 ^ 4 == 10  # proof
+}

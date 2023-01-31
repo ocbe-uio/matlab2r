@@ -5,6 +5,10 @@
 #' @return either a vector or a list of mantissas and exponents such that
 #' mantissa * 2 ^ exponent equals X
 #' @export
+#' @examples
+#' log2(10, dissect = FALSE)
+#' log2(10)
+#' .625 * 2 ^ 4 == 10  # proof
 log2 <- function(X, dissect = TRUE) {
   if (!dissect) return(base::log2(X))
   me <- data.frame(row.names = X)

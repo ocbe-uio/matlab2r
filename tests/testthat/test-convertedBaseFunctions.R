@@ -314,13 +314,25 @@ test_that("sum works", {
 })
 
 test_that("log2 works", {
+  # TODO: add examples from https://se.mathworks.com/help/matlab/ref/log2.html
+  expect_equal(log2(pi, dissect = FALSE), base::log2(pi))
   expect_equal(
     log2(exp(1)),
-    list("mantissa" = .67959, "exponent" = 2)
+    list("mantissa" = .67957, "exponent" = 2),
+    tolerance = 1e-4
   )
   expect_equal(
-    log2(c(10, 100, 0, pi)),
-    list("mantissa" = c(.62500, .78125, 0, .78542), "exponent" = c(4, 7, 0, 2))
+    log2(c(10, 100, 0, pi, 1, -3)),
+    list(
+      "mantissa" = c(.62500, .78125, 0, .78542, .5, -.75),
+      "exponent" = c(4, 7, 0, 2, 1, 2)
+    ),
+    tolerance = 1e-4
+  )
+  expect_equal(
+    log2(c(0, 1, 2, 10, Inf, NaN), FALSE),
+    c(-Inf, 0, 1, 3.3219, Inf, NaN),
+    tolerance = 1e-4
   )
 })
 
