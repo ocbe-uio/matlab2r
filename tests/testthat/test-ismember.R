@@ -43,8 +43,15 @@ test_that("Set members in presence of numerical error", {
   y <- 10 ^ log10(x)
   expect_true(all.equal(x, y))
   expect_false(identical(x, y))
-  # MATLAB shows 1 on index 4 due to floating point differences
-  expect_equal(ismember(x, y), t(c(0, 1, 1, 0, 1, 0)))
+  # MATLAB shows 1 on index 4 due to floating point differences.
+  # Such differences are OS-dependent
+  match_matrix <- switch(Sys.info()[["sysname"]],
+    "Linux"   = t(c(0, 1, 1, 0, 1, 0)),
+    "Darwin"  = t(c(1, 1, 1, 0, 1, 0)),
+    "Windows" = t(c(1, 1, 1, 0, 1, 0))
+
+  )
+  expect_equal(ismember(x, y), match_matrix)
   expect_equal(ismembertol(x, y), t(c(1, 1, 1, 1, 1, 1)))
 })
 
