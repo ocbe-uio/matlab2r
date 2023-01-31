@@ -1,6 +1,7 @@
 #' @title Base 2 logarithm
 #' @description Base 2 logarithm and floating-point number dissection
 #' @param X a scalar or vector of numbers
+#' @param tol a tolerance level for numerical calculation of the log
 #' @note User, beware: this is ridiculously slow and written in a hurry. If you
 #' simply want to compute the base 2 logarithm of a number, use \code{log2()}
 #' from \code{base}.

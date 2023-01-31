@@ -8,6 +8,8 @@ log2(X, tol = 1e-04)
 }
 \arguments{
 \item{X}{a scalar or vector of numbers}
+
+\item{tol}{a tolerance level for numerical calculation of the log}
 }
 \value{
 a list of mantissas and exponents such that mantissa * 2 ^ exponent
