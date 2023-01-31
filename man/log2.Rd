@@ -4,22 +4,22 @@
 \alias{log2}
 \title{Base 2 logarithm}
 \usage{
-log2(X, tol = 1e-04)
+log2(X, dissect = TRUE)
 }
 \arguments{
 \item{X}{a scalar or vector of numbers}
 
-\item{tol}{a tolerance level for numerical calculation of the log}
+\item{dissect}{if \code{TRUE}, returns the mantissa and exponent.}
 }
 \value{
-a list of mantissas and exponents such that mantissa * 2 ^ exponent
-equals X
+either a vector or a list of mantissas and exponents such that
+mantissa * 2 ^ exponent equals X
 }
 \description{
 Base 2 logarithm and floating-point number dissection
 }
-\note{
-User, beware: this is ridiculously slow and written in a hurry. If you
-simply want to compute the base 2 logarithm of a number, use \code{log2()}
-from \code{base}.
+\examples{
+log2(10, dissect = FALSE)
+log2(10)
+.625 * 2 ^ 4 == 10  # proof
 }
