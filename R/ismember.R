@@ -43,6 +43,8 @@ setGeneric(
     return(out)
   }
 )
+
+#' @rdname ismember
 setMethod(
   f = "ismember",
   signature = c("data.frame", "data.frame"),
@@ -62,6 +64,25 @@ setMethod(
   }
 )
 
+#' @title Tolerant alternative to ismember
+#' @description Does the
+#' @seealso \code{ismember}
+#' @inheritParams ismember
+#' @return Same as \code{ismember}
+#' @author Waldir Leoncio
+#' @export
+#' @examples
+#' x <- t(1:6) * pi
+#' y <- 10 ^ log10(x)
+#'
+#' # Show that values are equal, but not identical (due to floating-point error)
+#' all.equal(x, y)
+#' identical(x, y)
+#'
+#' # Checking the difference in outputs
+#' ismember(x, y)
+#' ismembertol(x, y)
+#'
 ismembertol <- function(A, B, rows = FALSE, indices = TRUE) {
   A <- round(A, digits = 10L)
   B <- round(B, digits = 10L)

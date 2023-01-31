@@ -2,9 +2,12 @@
 % Please edit documentation in R/ismember.R
 \name{ismember}
 \alias{ismember}
+\alias{ismember,data.frame,data.frame-method}
 \title{Array elements that are members of set array}
 \usage{
 ismember(A, B, rows = FALSE, indices = FALSE)
+
+\S4method{ismember}{data.frame,data.frame}(A, B, rows = FALSE, indices = FALSE)
 }
 \arguments{
 \item{A}{a vector, matrix or dataframe}
