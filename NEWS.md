@@ -1,6 +1,6 @@
 # matlab2r (development version)
 
-* Added `log2()`, `rem()`
+* Added `log2()`, `rem()`, `ismember()`
 
 # matlab2r 1.4.0
 
