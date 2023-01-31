@@ -323,3 +323,14 @@ test_that("log2 works", {
     list("mantissa" = c(.62500, .78125, 0, .78542), "exponent" = c(4, 7, 0, 2))
   )
 })
+
+test_that("rem works", {
+  expect_equal(rem(23, 5), 3)
+  expect_equal(rem(1:5, 3), c(1, 2, 0, 1, 2))
+  expect_equal(rem(c(-4, -1, 7, 9), 3), c(-1, -1, 1, 0))  #FIXME
+  expect_equal(
+    rem(c(0, 3.5, 5.9, 6.2, 9, 4 * pi), 2 * pi),
+    c(0, 3.5, 5.9, 6.2, 2.7168, 0),
+    tolerance = 1e-3
+  )
+})
