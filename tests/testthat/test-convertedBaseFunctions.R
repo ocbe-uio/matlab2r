@@ -312,3 +312,37 @@ test_that("sum works", {
   expect_equal(sum_MATLAB(x1, 3), x1)
   expect_equal(sum_MATLAB(x1, 4), x1)
 })
+
+test_that("log2 works", {
+  # TODO: add examples from https://se.mathworks.com/help/matlab/ref/log2.html
+  expect_equal(log2(pi, dissect = FALSE), base::log2(pi))
+  expect_equal(
+    log2(exp(1)),
+    list("mantissa" = .67957, "exponent" = 2),
+    tolerance = 1e-4
+  )
+  expect_equal(
+    log2(c(10, 100, 0, pi, 1, -3)),
+    list(
+      "mantissa" = c(.62500, .78125, 0, .78542, .5, -.75),
+      "exponent" = c(4, 7, 0, 2, 1, 2)
+    ),
+    tolerance = 1e-4
+  )
+  expect_equal(
+    log2(c(0, 1, 2, 10, Inf, NaN), FALSE),
+    c(-Inf, 0, 1, 3.3219, Inf, NaN),
+    tolerance = 1e-4
+  )
+})
+
+test_that("rem works", {
+  expect_equal(rem(23, 5), 3)
+  expect_equal(rem(1:5, 3), c(1, 2, 0, 1, 2))
+  expect_equal(rem(c(-4, -1, 7, 9), 3), c(-1, -1, 1, 0))  #FIXME
+  expect_equal(
+    rem(c(0, 3.5, 5.9, 6.2, 9, 4 * pi), 2 * pi),
+    c(0, 3.5, 5.9, 6.2, 2.7168, 0),
+    tolerance = 1e-3
+  )
+})
