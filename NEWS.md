@@ -1,5 +1,7 @@
 # matlab2r (development version)
 
+* Improved parsing of negative arguments on `zeros()` and `ones()`
+
 # matlab2r 1.5.0
 
 * Added `log2()`, `rem()`, `ismember()`, `ismembertol()`
