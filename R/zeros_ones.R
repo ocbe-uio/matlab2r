@@ -11,6 +11,9 @@ zeros_or_ones <- function(n, x) {
   # Expanding n to length 2 if necessary
   if (length(n) == 1) n <- c(n, n)
 
+  # Replacing negative values with 0
+  n <- vapply(n, function(i) base::max(i, 0), 0)
+
   # Returning a matrix or an array
   if (length(n) == 2) {
     return(matrix(x, n[1], n[2]))
